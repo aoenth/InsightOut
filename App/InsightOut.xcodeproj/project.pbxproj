@@ -22,6 +22,7 @@
 		7BA532D62735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DC2735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DE2735E64500CBE2C4 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		7BA532EE2735E75700CBE2C4 /* InsightOut */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightOut; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +46,7 @@
 		7BA532C92735E63D00CBE2C4 = {
 			isa = PBXGroup;
 			children = (
+				7BA532ED2735E75700CBE2C4 /* Packages */,
 				7BA532CE2735E63D00CBE2C4 /* Shared */,
 				7BA532DD2735E64500CBE2C4 /* macOS */,
 				7BA532D72735E64500CBE2C4 /* Products */,
@@ -76,6 +78,14 @@
 				7BA532DE2735E64500CBE2C4 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		7BA532ED2735E75700CBE2C4 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7BA532EE2735E75700CBE2C4 /* InsightOut */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
