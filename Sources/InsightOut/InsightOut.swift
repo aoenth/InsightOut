@@ -9,7 +9,15 @@ public enum Label {
 }
 
 public struct MoodEntry {
-    let time: Date
-    let mood: Mood
-    let label: Label
+
+    public let time: Date
+    public let mood: Mood
+    public let label: Label
+
+    public init(time: Date, mood: Mood, label: Label) {
+        self.time = time
+        self.mood = mood
+        self.label = label
+    }
+
 }
