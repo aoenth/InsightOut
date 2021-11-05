@@ -1,4 +1,5 @@
 import Foundation
+
 public enum Mood {
     case happy
 }
