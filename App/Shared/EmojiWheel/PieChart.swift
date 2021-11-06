@@ -13,22 +13,24 @@ struct PieChart: View {
     var separatorColor: Color
     var accentColors: [Color]
     
-    @State  private var currentValue = ""
-    @State  private var currentLabel = ""
-    @State  private var touchLocation: CGPoint = .init(x: -1, y: -1)
+//    @State private var currentValue = ""
+//    @State private var currentLabel = ""
+    @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
     
-    //might be binding for usage
-    @State var selectedEmotion: Mood = Mood.happiness
+
+    @Binding var moodStatus: Mood
+    @Binding var backgroundColor: Color
     
     var pieSlices: [PieSlice] {
         var slices = [PieSlice]()
         data.enumerated().forEach {(index, data) in
             let value = normalizedValue(index: index, data: self.data)
             let mood = self.data[index].mood
+            let label = self.data[index].label
             if slices.isEmpty {
-                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
+                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood, label: label)))
             } else {
-                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood))
+                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood, label: label))
             }
         }
         return slices
@@ -40,7 +42,7 @@ struct PieChart: View {
                 ZStack  {
                     ForEach(0..<self.data.count){ i in
                         ZStack {
-                            PieChartSlice(mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
+                            PieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
                         }
                     }
                 }
@@ -68,7 +70,10 @@ struct PieChart: View {
         guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return false }
         guard let selectedSliceIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) else { return false }
         DispatchQueue.main.async {
-        selectedEmotion = pieSlices[selectedSliceIndex].mood
+            moodStatus = pieSlices[selectedSliceIndex].mood
+            
+            backgroundColor = accentColors[selectedSliceIndex]
+            
         }
         return pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) == index
     }
@@ -76,7 +81,9 @@ struct PieChart: View {
 }
 
 struct PieChart_Previews: PreviewProvider {
+    @State static var moodStatus = Mood.happiness
+    @State static var backgroundColor = Color("happiness")
     static var previews: some View {
-        PieChart(title: "MyPieChart", data: chartDataSet, separatorColor: Color(UIColor.systemBackground), accentColors: pieColors, selectedEmotion: Mood.happiness)
+        PieChart(title: "MyPieChart", data: chartDataSet, separatorColor: Color(UIColor.systemBackground), accentColors: pieColors, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
     }
 }

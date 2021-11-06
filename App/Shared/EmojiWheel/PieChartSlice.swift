@@ -17,6 +17,7 @@ func cosd(degrees: Double) -> Double {
 }
 
 struct PieChartSlice: View {
+    let label: String
     let mood: Mood
     var center: CGPoint
     var radius: CGFloat
@@ -44,18 +45,24 @@ struct PieChartSlice: View {
                 .overlay(path.stroke(separatorColor, lineWidth: 2))
                 .scaleEffect(isTouched ? 1.1 : 1)
                 .animation(Animation.spring())
-            
+            VStack {
             Emoji(mood: mood)
                 .frame(width: size * 0.15, height: size * 0.15)
-                .foregroundColor(Color.black)
-                .position(center)
-                .offset(x: 0.7 * radius * cosd(degrees: startDegree + abs(endDegree - startDegree)/2),
-                        y:  0.7 * radius *  sind(degrees: startDegree + abs(endDegree - startDegree)/2))
+                .foregroundColor(accentColor)
+//                
+//            Text(label)
+//                    .foregroundColor(Color.white)
+            }
+            .position(center)
+            .offset(x: 0.7 * radius * cosd(degrees: startDegree + abs(endDegree - startDegree)/2),
+                    y:  0.7 * radius *  sind(degrees: startDegree + abs(endDegree - startDegree)/2))
         }
     }
 }
 
 struct PieChartSlice_Previews: PreviewProvider {
     static var previews: some View {
-        PieChartSlice(mood: Mood.happiness, center: CGPoint(x: 350, y: 200), radius: 300, startDegree: 90, endDegree: 90 + 90, isTouched: true, accentColor: .orange, separatorColor: .black, size: 600)    }
+        PieChartSlice(label: "Happiness", mood: Mood.happiness, center: CGPoint(x: 350, y: 200), radius: 300, startDegree: 90, endDegree: 90 + 90, isTouched: true, accentColor: .orange, separatorColor: .black, size: 600)
+        
+    }
 }
