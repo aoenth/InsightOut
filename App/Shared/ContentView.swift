@@ -10,7 +10,9 @@ import InsightOut
 struct ContentView: View {
     
     var body: some View {
-       Text("HI")
+      EmojiWheel()
+            .frame(width: 300, height: 300)
+        
 
     }
 }
