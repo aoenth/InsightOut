@@ -6,11 +6,25 @@
 //
 
 import SwiftUI
-
+import InsightOut
 struct ContentView: View {
+    @State var isHappy = true
+    @State var mood: Mood = Mood.happiness
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            
+            EmojiIcon(emojiInfo:  EmojiInfo(backgroundColor: Color.black, selectedEmotion: mood, frameSize: 200))
+        
+        Button {
+            withAnimation{
+                isHappy.toggle()
+            }
+            
+        } label: {
+            Text("CHANGE MOOD")
+        }
+            
+        }
     }
 }
 

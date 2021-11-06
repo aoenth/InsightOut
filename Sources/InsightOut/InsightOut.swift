@@ -1,7 +1,13 @@
 import Foundation
 
 public enum Mood {
-    case happy
+    case happiness
+    case sadness
+    case love
+    case fear
+    case disgust
+    case surprised
+    case anger
 }
 
 public enum Label {
