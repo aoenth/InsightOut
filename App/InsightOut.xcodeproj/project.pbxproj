@@ -90,7 +90,7 @@
 				7BA532D02735E63D00CBE2C4 /* ContentView.swift */,
 				E128FB332736113C002D02BF /* EmojiIcon.swift */,
 				E1F11474273729AD007BFCEE /* MoodStatusFace.swift */,
-				CDF2C899273736820071571E /* EmotionsOfThjeDay */,
+				CDF2C899273736820071571E /* EmotionsOfTheDay */,
 				E1F11473273701DC007BFCEE /* EmojiWheel */,
 				7BA532D12735E64500CBE2C4 /* Assets.xcassets */,
 			);
