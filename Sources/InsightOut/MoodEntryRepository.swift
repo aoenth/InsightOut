@@ -16,7 +16,7 @@ class MoodEntryRepository: MoodEntryLoader {
     }
     
     let fetchRequest = MoodEntryObject.createFetchRequest()
-    let dateSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+    let dateSortDescriptor = NSSortDescriptor(key: "time", ascending: true)
     
     let calendar = Calendar.current
     
@@ -38,7 +38,7 @@ class MoodEntryRepository: MoodEntryLoader {
         let startDate = calendar.startOfDay(for: forDate)
         let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)!
         
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startDate as NSDate, endDate as NSDate)
+        fetchRequest.predicate = NSPredicate(format: "time >= %@ AND time < %@", startDate as NSDate, endDate as NSDate)
         fetchRequest.sortDescriptors = [dateSortDescriptor]
         
         if let moodMOs = fetchWith(request: fetchRequest) {
