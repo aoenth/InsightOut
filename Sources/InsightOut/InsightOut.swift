@@ -1,7 +1,7 @@
 import Foundation
 
-public enum Mood: CaseIterable {
-    case happiness
+public enum Mood: Int32, CaseIterable {
+    case happiness = 0
     case sadness
     case love
     case fear
@@ -10,8 +10,9 @@ public enum Mood: CaseIterable {
     case anger
 }
 
-public enum Label {
-    case family
+public enum Label: Int32, CaseIterable {
+    case family = 0
+    case work
 }
 
 public struct MoodEntry {
