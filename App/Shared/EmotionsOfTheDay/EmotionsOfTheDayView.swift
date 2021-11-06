@@ -13,7 +13,7 @@ struct EmotionsOfTheDayView: View {
     
     var body: some View {
         HStack {
-            ForEach(0..<colors.count, id: \.self) { index in
+            ForEach(0 ..< colors.count, id: \.self) { index in
                 EmotionColorSquareView(color: colors[index])
             }
         }
