@@ -25,5 +25,4 @@ public struct MoodEntry {
         self.mood = mood
         self.label = label
     }
-
 }

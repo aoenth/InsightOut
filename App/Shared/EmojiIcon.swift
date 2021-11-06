@@ -8,22 +8,8 @@
 import SwiftUI
 import InsightOut
 
-struct EmojiInfo {
-    let backgroundColor: Color
-    let selectedEmotion: Mood
-}
-
-struct EmojiIcon: View {
-    let emojiInfo: EmojiInfo
-
-    var body: some View {
-        Emoji(emojiInfo: emojiInfo)
-            .ignoresSafeArea()
-    }
-}
-
 struct Emoji: View {
-    let emojiInfo: EmojiInfo
+    let mood: Mood
 
     var body: some View {
         GeometryReader { proxy in
@@ -33,12 +19,12 @@ struct Emoji: View {
                 Circle()
                     .fill(Color.white)
 
-                EmojiEyes(emojiInfo: emojiInfo)
+                EmojiEyes(mood: mood)
                     .offset(y: width * -0.1)
                     .frame(width: width, height: width)
 
-                EmojiMouth(emojiInfo: emojiInfo)
-                    .stroke(style: emojiInfo.selectedEmotion != Mood.surprised ? StrokeStyle(lineWidth: width * 0.08, lineCap: .round) : StrokeStyle(lineWidth: width * 0.1, lineCap: .round))
+                EmojiMouth(mood: mood)
+                    .stroke(style: mood != .surprised ? StrokeStyle(lineWidth: width * 0.08, lineCap: .round) : StrokeStyle(lineWidth: width * 0.1, lineCap: .round))
                     .offset(y: width * 0.2)
                     .frame(width: width * 0.5, height: width * 0.5)
             }
@@ -47,7 +33,7 @@ struct Emoji: View {
 }
 
 struct EmojiEyes: View {
-    let emojiInfo: EmojiInfo
+    let mood: Mood
     let eyeScale: CGFloat = 0.2
 
     var body: some View {
@@ -56,32 +42,32 @@ struct EmojiEyes: View {
 
             HStack(spacing: width * 0.2) {
 
-                switch emojiInfo.selectedEmotion {
+                switch mood {
 
-                case Mood.happiness:
+                case .happiness:
                     ForEach(0..<2) {_ in
                         Circle()
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
-                case Mood.sadness:
+                case .sadness:
                     ForEach(0..<2) {_ in
                         Circle()
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
 
-                case Mood.love:
+                case .love:
                     ForEach(0..<2) {_ in
                         Image(systemName: "heart.fill")
                             .font(Font.system(size: width * 0.2, weight: .semibold))
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
-                case Mood.fear:
+                case .fear:
                     ForEach(0..<2) {_ in
                         Circle()
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
 
-                case Mood.disgust:
+                case .disgust:
                     HStack(spacing: width * 0.16) {
                         EmojiDisgust()
                             .stroke(style: StrokeStyle(lineWidth: width * 0.07, lineCap: .round))
@@ -93,13 +79,13 @@ struct EmojiEyes: View {
                             .rotation(Angle(degrees: 270))
                             .frame(width: width * 0.1, height: width * 0.3)
                     }
-                case Mood.surprised:
+                case .surprised:
                     ForEach(0..<2) {_ in
                         Circle()
                             .frame(width: width * eyeScale, height: width * eyeScale)
 
                     }
-                case Mood.anger:
+                case .anger:
                     HStack(spacing: width * 0.1) {
                         ZStack {
                             Capsule()
@@ -140,37 +126,37 @@ struct EmojiDisgust: Shape {
 }
 
 struct EmojiMouth: Shape {
-    let emojiInfo: EmojiInfo
+    let mood: Mood
     
     func path(in rect: CGRect) -> Path {
         
         Path { path in
-            switch emojiInfo.selectedEmotion {
-            case Mood.happiness:
+            switch mood {
+            case .happiness:
                 path.move(to: CGPoint(x: rect.minX, y: rect.midY))
                 path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY), control: CGPoint(x: rect.midX, y: rect.maxY))
-            case Mood.sadness:
+            case .sadness:
                 path.move(to: CGPoint(x: rect.minX, y: rect.midY * 1.2))
                 path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY * 1.2), control: CGPoint(x: rect.midX, y: rect.midY * 0.6))
-            case Mood.love:
+            case .love:
                 path.move(to: CGPoint(x: rect.minX, y: rect.midY))
                 path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY), control: CGPoint(x: rect.midX, y: rect.maxY))
-            case Mood.fear:
+            case .fear:
                 path.move(to: CGPoint(x: rect.minX, y: rect.midY))
                 path.addQuadCurve(to: CGPoint(x: rect.midX, y: rect.midY * 1.1), control: CGPoint(x: rect.midX / 1.5, y: rect.midY * 1.3))
                 path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY * 0.9), control: CGPoint(x: rect.midX * 1.5, y: rect.midY * 0.7))
                 
-            case Mood.disgust:
+            case .disgust:
                 path.move(to: CGPoint(x: rect.minX, y: rect.midY))
                 path.addQuadCurve(to: CGPoint(x: rect.midX, y: rect.midY), control: CGPoint(x: rect.midX, y: rect.midY))
                 path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY), control: CGPoint(x: rect.midX, y: rect.midY))
                 
-            case Mood.surprised:
+            case .surprised:
                 let size = rect.width * 0.2
                 path.move(to: CGPoint(x: rect.midX, y: rect.midY))
                 path.addEllipse(in: CGRect(origin: CGPoint(x: rect.midX - size / 2 , y: rect.midY), size: CGSize(width: size , height: size * 0.4)))
                    
-            case Mood.anger:
+            case .anger:
                 path.move(to: CGPoint(x: rect.minX, y: rect.midY * 1.2))
                 path.addQuadCurve(to: CGPoint(x: rect.maxX, y: rect.midY * 1.2), control: CGPoint(x: rect.midX, y: rect.midY * 0.6))
             }
@@ -178,14 +164,12 @@ struct EmojiMouth: Shape {
     }
 }
 
-
-
 struct EmojiIcon_Previews: PreviewProvider {
  
     static var previews: some View {
         VStack {
             ForEach(Mood.allCases, id: \.self) { mood in
-                EmojiIcon(emojiInfo: EmojiInfo(backgroundColor: Color.black, selectedEmotion: mood))
+                Emoji(mood: mood)
                     .frame(width: 75, height: 75)
                     .foregroundColor(.black)
                     .background(Color.black)
