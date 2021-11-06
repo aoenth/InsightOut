@@ -3,7 +3,7 @@ import XCTest
 
 final class InsightOutTests: XCTestCase {
     func test_init() throws {
-        let context = CoreDataStack.preview.context
+        let context = CoreDataStack(inMemory: true).context
         let sut = MoodEntryObject(context: context)
         let testTime = Date(timeIntervalSince1970: 0)
         sut.time = testTime
@@ -12,7 +12,7 @@ final class InsightOutTests: XCTestCase {
     }
 
     func test_persistence() throws {
-        let context = CoreDataStack.preview.context
+        let context = CoreDataStack(inMemory: true).context
         let sut = MoodEntryObject(context: context)
         let testTime = Date(timeIntervalSince1970: 0)
         sut.time = testTime
