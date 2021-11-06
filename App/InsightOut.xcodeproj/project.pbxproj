@@ -26,6 +26,8 @@
 		E1F1146C2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1146A2736F690007BFCEE /* EmojiWheelHelper.swift */; };
 		E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114702736FBE9007BFCEE /* EmojiWheel.swift */; };
 		E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114702736FBE9007BFCEE /* EmojiWheel.swift */; };
+		E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F11474273729AD007BFCEE /* MoodStatusFace.swift */; };
+		E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F11474273729AD007BFCEE /* MoodStatusFace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,7 @@
 		E1F114672736F5EA007BFCEE /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E1F1146A2736F690007BFCEE /* EmojiWheelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiWheelHelper.swift; sourceTree = "<group>"; };
 		E1F114702736FBE9007BFCEE /* EmojiWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiWheel.swift; sourceTree = "<group>"; };
+		E1F11474273729AD007BFCEE /* MoodStatusFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStatusFace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 				7BA532CF2735E63D00CBE2C4 /* InsightOutApp.swift */,
 				7BA532D02735E63D00CBE2C4 /* ContentView.swift */,
 				E128FB332736113C002D02BF /* EmojiIcon.swift */,
+				E1F11474273729AD007BFCEE /* MoodStatusFace.swift */,
 				E1F11473273701DC007BFCEE /* EmojiWheel */,
 				7BA532D12735E64500CBE2C4 /* Assets.xcassets */,
 			);
@@ -232,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA532E12735E64500CBE2C4 /* ContentView.swift in Sources */,
+				E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
 				E1F114652736F530007BFCEE /* ChartData.swift in Sources */,
 				E1F1146B2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
 				7BA532DF2735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */,
+				E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
 				E1F114662736F530007BFCEE /* ChartData.swift in Sources */,
 				E1F1146C2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
 				7BA532E02735E64500CBE2C4 /* InsightOutApp.swift in Sources */,

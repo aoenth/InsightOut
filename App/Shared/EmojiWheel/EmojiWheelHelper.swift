@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
- import InsightOut
+import InsightOut
 
 let pieColors = [
      Color("happiness"),
@@ -17,13 +17,14 @@ let pieColors = [
      Color("fear"),
      Color("surprised"),
      Color("anger")
- ]
+]
 
 struct PieSlice {
-     var startDegree: Double
-     var endDegree: Double
-     let mood: Mood
- }
+    var startDegree: Double
+    var endDegree: Double
+    let mood: Mood
+    let label: String
+}
 
 func normalizedValue(index: Int, data: [ChartData]) -> Double {
     var total = 0.0
@@ -36,18 +37,18 @@ func normalizedValue(index: Int, data: [ChartData]) -> Double {
 
 
 func angleAtTouchLocation(inPie pieSize: CGRect, touchLocation: CGPoint) ->  Double?  {
-     let dx = touchLocation.x - pieSize.midX
-     let dy = touchLocation.y - pieSize.midY
-     
-     let distanceToCenter = (dx * dx + dy * dy).squareRoot()
-     let radius = pieSize.width/2
-     guard distanceToCenter <= radius else {
-         return nil
-     }
-     let angleAtTouchLocation = Double(atan2(dy, dx) * (180 / .pi))
-     if angleAtTouchLocation < 0 {
-         return (180 + angleAtTouchLocation) + 180
-     } else {
-         return angleAtTouchLocation
+    let dx = touchLocation.x - pieSize.midX
+    let dy = touchLocation.y - pieSize.midY
+    
+    let distanceToCenter = (dx * dx + dy * dy).squareRoot()
+    let radius = pieSize.width/2
+    guard distanceToCenter <= radius else {
+        return nil
+    }
+    let angleAtTouchLocation = Double(atan2(dy, dx) * (180 / .pi))
+    if angleAtTouchLocation < 0 {
+        return (180 + angleAtTouchLocation) + 180
+    } else {
+        return angleAtTouchLocation
      }
  }
