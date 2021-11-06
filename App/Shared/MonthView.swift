@@ -9,30 +9,48 @@ import SwiftUI
 import InsightOut
 
 struct MonthView: View {
-    
-    let moods: [Mood]
+
+    let entries: [MoodEntry]
     
     var body: some View {
-        let columns: [GridItem] = [GridItem](repeating: GridItem(.flexible(minimum: 40, maximum: 400)), count: 7)
+        let columns: [GridItem] = [GridItem](repeating: GridItem(.flexible()), count: 7)
         LazyVGrid(columns: columns) {
-            ForEach(moods) { mood in
-                Color("\(mood)")
-                    .frame(height: 20)
+            ForEach(entries) { entry in
+                Color("\(entry.mood)")
+                    .frame(height: 40)
             }
         }
     }
 }
 
 struct MonthView_Previews: PreviewProvider {
-    static let moods = [[Mood]](repeating: Mood.allCases, count: 20).flatMap { $0 }
+    static let entries: [MoodEntry] = {
+        (0 ..< 30).map { day in
+            let date = Date(timeIntervalSince1970: Double(day) * 86400)
+            let moods = Mood.allCases[day % Mood.allCases.count]
+            return MoodEntry(time: date, mood: moods)
+
+        }
+    }()
     
     static var previews: some View {
-        MonthView(moods: moods)
+        MonthView(entries: entries)
     }
 }
 
-extension Mood: Identifiable {
-    public var id: Int32 {
-        rawValue
+extension MoodEntry: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(mood.rawValue)
+        hasher.combine(time.hashValue)
+    }
+
+    public static func == (lhs: MoodEntry, rhs: MoodEntry) -> Bool {
+        lhs.mood == rhs.mood && lhs.time == rhs.time
+    }
+}
+
+extension MoodEntry: Identifiable {
+    public var id: Int {
+        hashValue
     }
 }
