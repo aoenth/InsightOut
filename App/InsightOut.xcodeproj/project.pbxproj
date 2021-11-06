@@ -14,6 +14,10 @@
 		7BA532E32735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532E42735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532F4273604AE00CBE2C4 /* InsightOut in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA532F3273604AE00CBE2C4 /* InsightOut */; };
+		CDF2C89C273736820071571E /* EmotionColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89A273736820071571E /* EmotionColorSquareView.swift */; };
+		CDF2C89D273736820071571E /* EmotionColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89A273736820071571E /* EmotionColorSquareView.swift */; };
+		CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
+		CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
 		E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E1F114622736F46F007BFCEE /* PieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* PieChartSlice.swift */; };
@@ -38,6 +42,8 @@
 		7BA532DC2735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DE2735E64500CBE2C4 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		7BA532F12736027F00CBE2C4 /* InsightOut */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightOut; path = ..; sourceTree = "<group>"; };
+		CDF2C89A273736820071571E /* EmotionColorSquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionColorSquareView.swift; sourceTree = "<group>"; };
+		CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsOfTheDayView.swift; sourceTree = "<group>"; };
 		E128FB332736113C002D02BF /* EmojiIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiIcon.swift; sourceTree = "<group>"; };
 		E1F114612736F46F007BFCEE /* PieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlice.swift; sourceTree = "<group>"; };
 		E1F114642736F530007BFCEE /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 				7BA532D02735E63D00CBE2C4 /* ContentView.swift */,
 				E128FB332736113C002D02BF /* EmojiIcon.swift */,
 				E1F11474273729AD007BFCEE /* MoodStatusFace.swift */,
+				CDF2C899273736820071571E /* EmotionsOfThjeDay */,
 				E1F11473273701DC007BFCEE /* EmojiWheel */,
 				7BA532D12735E64500CBE2C4 /* Assets.xcassets */,
 			);
@@ -120,6 +127,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDF2C899273736820071571E /* EmotionsOfThjeDay */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2C89A273736820071571E /* EmotionColorSquareView.swift */,
+				CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */,
+			);
+			path = EmotionsOfThjeDay;
 			sourceTree = "<group>";
 		};
 		E1F11473273701DC007BFCEE /* EmojiWheel */ = {
@@ -240,8 +256,10 @@
 				E1F114652736F530007BFCEE /* ChartData.swift in Sources */,
 				E1F1146B2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
 				7BA532DF2735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
+				CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				E1F114682736F5EA007BFCEE /* PieChart.swift in Sources */,
+				CDF2C89C273736820071571E /* EmotionColorSquareView.swift in Sources */,
 				E1F114622736F46F007BFCEE /* PieChartSlice.swift in Sources */,
 				E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */,
 			);
@@ -256,8 +274,10 @@
 				E1F114662736F530007BFCEE /* ChartData.swift in Sources */,
 				E1F1146C2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
 				7BA532E02735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
+				CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				E1F114692736F5EA007BFCEE /* PieChart.swift in Sources */,
+				CDF2C89D273736820071571E /* EmotionColorSquareView.swift in Sources */,
 				E1F114632736F46F007BFCEE /* PieChartSlice.swift in Sources */,
 				E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */,
 			);
