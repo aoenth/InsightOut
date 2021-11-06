@@ -10,8 +10,9 @@ public enum Mood: Int32, CaseIterable {
     case anger
 }
 
-public enum Label: Int32 {
+public enum Label: Int32, CaseIterable {
     case family = 0
+    case work
 }
 
 public struct MoodEntry {
