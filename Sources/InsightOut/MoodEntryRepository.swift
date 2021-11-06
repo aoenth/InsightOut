@@ -62,9 +62,9 @@ class MoodEntryRepository: MoodEntryLoader {
         
         return moods
     }
-    
+
     func moods(startDate: Date, endDate: Date) -> [Date : [MoodEntry]] {
-        var moods = [Date:[MoodEntry]]()
+        var moods = [Date: [MoodEntry]]()
         
         let startDate = calendar.startOfDay(for: startDate)
         
