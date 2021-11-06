@@ -19,7 +19,6 @@ struct EmojiIcon: View {
     var body: some View {
         Emoji(emojiInfo: emojiInfo)
             .ignoresSafeArea()
-            .background(Color.black)
     }
 }
 
@@ -40,7 +39,6 @@ struct Emoji: View {
 
                 EmojiMouth(emojiInfo: emojiInfo)
                     .stroke(style: emojiInfo.selectedEmotion != Mood.surprised ? StrokeStyle(lineWidth: width * 0.08, lineCap: .round) : StrokeStyle(lineWidth: width * 0.1, lineCap: .round))
-                    .fill(emojiInfo.backgroundColor)
                     .offset(y: width * 0.2)
                     .frame(width: width * 0.5, height: width * 0.5)
             }
@@ -63,27 +61,23 @@ struct EmojiEyes: View {
                 case Mood.happiness:
                     ForEach(0..<2) {_ in
                         Circle()
-                            .fill(emojiInfo.backgroundColor)
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
                 case Mood.sadness:
                     ForEach(0..<2) {_ in
                         Circle()
-                            .fill(emojiInfo.backgroundColor)
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
 
                 case Mood.love:
                     ForEach(0..<2) {_ in
                         Image(systemName: "heart.fill")
-                            .foregroundColor(emojiInfo.backgroundColor)
                             .font(Font.system(size: width * 0.2, weight: .semibold))
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
                 case Mood.fear:
                     ForEach(0..<2) {_ in
                         Circle()
-                            .fill(emojiInfo.backgroundColor)
                             .frame(width: width * eyeScale, height: width * eyeScale)
                     }
 
@@ -102,7 +96,6 @@ struct EmojiEyes: View {
                 case Mood.surprised:
                     ForEach(0..<2) {_ in
                         Circle()
-                            .fill(emojiInfo.backgroundColor)
                             .frame(width: width * eyeScale, height: width * eyeScale)
 
                     }
@@ -111,23 +104,19 @@ struct EmojiEyes: View {
                         ZStack {
                             Capsule()
                                 .rotation(Angle(degrees: 20))
-                                .fill(emojiInfo.backgroundColor)
 
                                 .frame(width: width * eyeScale * 1.5, height: width * eyeScale * 0.5)
                                 .offset(y:width * -0.1)
                             Circle()
-                                .fill(emojiInfo.backgroundColor)
                                 .frame(width: width * eyeScale, height: width * eyeScale)
                         }
                         ZStack {
                             Capsule()
                                 .rotation(Angle(degrees: -20))
-                                .fill(emojiInfo.backgroundColor)
 
                                 .frame(width: width * eyeScale * 1.5, height: width * eyeScale * 0.5)
                                 .offset(y:width * -0.1)
                             Circle()
-                                .fill(emojiInfo.backgroundColor)
                                 .frame(width: width * eyeScale, height: width * eyeScale)
                         }
                     }
@@ -198,6 +187,8 @@ struct EmojiIcon_Previews: PreviewProvider {
             ForEach(Mood.allCases, id: \.self) { mood in
                 EmojiIcon(emojiInfo: EmojiInfo(backgroundColor: Color.black, selectedEmotion: mood))
                     .frame(width: 75, height: 75)
+                    .foregroundColor(.black)
+                    .background(Color.black)
             }
         }
         .padding()
