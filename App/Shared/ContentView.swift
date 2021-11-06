@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-
+import InsightOut
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+       Text("HI")
+
     }
 }
 

@@ -14,6 +14,8 @@
 		7BA532E32735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532E42735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532F4273604AE00CBE2C4 /* InsightOut in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA532F3273604AE00CBE2C4 /* InsightOut */; };
+		E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
+		E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		7BA532DC2735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DE2735E64500CBE2C4 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		7BA532F12736027F00CBE2C4 /* InsightOut */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightOut; path = ..; sourceTree = "<group>"; };
+		E128FB332736113C002D02BF /* EmojiIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			children = (
 				7BA532CF2735E63D00CBE2C4 /* InsightOutApp.swift */,
 				7BA532D02735E63D00CBE2C4 /* ContentView.swift */,
+				E128FB332736113C002D02BF /* EmojiIcon.swift */,
 				7BA532D12735E64500CBE2C4 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -201,6 +205,7 @@
 			files = (
 				7BA532E12735E64500CBE2C4 /* ContentView.swift in Sources */,
 				7BA532DF2735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
+				E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +215,7 @@
 			files = (
 				7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */,
 				7BA532E02735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
+				E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +342,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JAFM26WWR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -365,6 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JAFM26WWR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
