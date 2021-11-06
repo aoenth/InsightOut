@@ -62,14 +62,13 @@ class MoodEntryRepository: MoodEntryLoader {
         
         return moods
     }
-    
+
     func moods(startDate: Date, endDate: Date) -> [Date : [MoodEntry]] {
-        var moods = [Date:[MoodEntry]]()
+        var moods = [Date: [MoodEntry]]()
         
         let startDate = calendar.startOfDay(for: startDate)
-        let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)!
         
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startDate as NSDate, endDate as NSDate)
+        fetchRequest.predicate = NSPredicate(format: "time >= %@ AND time < %@", startDate as NSDate, endDate as NSDate)
         fetchRequest.sortDescriptors = [dateSortDescriptor]
         
         if let moodMOs = fetchWith(request: fetchRequest) {
