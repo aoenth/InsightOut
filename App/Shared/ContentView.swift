@@ -7,6 +7,7 @@
 
 import SwiftUI
 import InsightOut
+
 struct ContentView: View {
     @State var moodStatus = Mood.happiness
     @State var backgroundColor = Color("happiness")

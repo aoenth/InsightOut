@@ -7,6 +7,7 @@
 
 import SwiftUI
 import InsightOut
+
 struct EmojiWheel: View {
     
     let animationScale = 1.1

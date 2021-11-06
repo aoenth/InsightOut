@@ -49,6 +49,6 @@ func angleAtTouchLocation(inPie pieSize: CGRect, touchLocation: CGPoint) ->  Dou
     if angleAtTouchLocation < 0 {
         return (180 + angleAtTouchLocation) + 180
     } else {
-         return angleAtTouchLocation
+        return angleAtTouchLocation
      }
  }
