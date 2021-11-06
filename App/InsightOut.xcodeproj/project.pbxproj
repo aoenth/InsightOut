@@ -13,6 +13,7 @@
 		7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA532D02735E63D00CBE2C4 /* ContentView.swift */; };
 		7BA532E32735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532E42735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
+		7BA532F4273604AE00CBE2C4 /* InsightOut in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA532F3273604AE00CBE2C4 /* InsightOut */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +23,7 @@
 		7BA532D62735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DC2735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DE2735E64500CBE2C4 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		7BA532EE2735E75700CBE2C4 /* InsightOut */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightOut; path = ..; sourceTree = "<group>"; };
+		7BA532F12736027F00CBE2C4 /* InsightOut */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightOut; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA532F4273604AE00CBE2C4 /* InsightOut in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +52,7 @@
 				7BA532CE2735E63D00CBE2C4 /* Shared */,
 				7BA532DD2735E64500CBE2C4 /* macOS */,
 				7BA532D72735E64500CBE2C4 /* Products */,
+				7BA532F2273604AE00CBE2C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,9 +86,16 @@
 		7BA532ED2735E75700CBE2C4 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				7BA532EE2735E75700CBE2C4 /* InsightOut */,
+				7BA532F12736027F00CBE2C4 /* InsightOut */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		7BA532F2273604AE00CBE2C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +114,9 @@
 			dependencies = (
 			);
 			name = "InsightOut (iOS)";
+			packageProductDependencies = (
+				7BA532F3273604AE00CBE2C4 /* InsightOut */,
+			);
 			productName = "InsightOut (iOS)";
 			productReference = 7BA532D62735E64500CBE2C4 /* InsightOut.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +270,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = InsightOutApp;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -309,6 +323,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_MODULE_NAME = InsightOutApp;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -456,6 +471,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7BA532F3273604AE00CBE2C4 /* InsightOut */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InsightOut;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7BA532CA2735E63D00CBE2C4 /* Project object */;
 }
