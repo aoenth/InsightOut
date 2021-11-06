@@ -7,11 +7,10 @@
 import SwiftUI
 import InsightOut
 
-struct PieChart: View {
-    var title: String
-    var data: [ChartData]
-    var separatorColor: Color
-    var accentColors: [Color]
+struct EmojiPieChart: View {
+    let data: [ChartData]
+    let separatorColor = Color.white
+    let accentColors = pieColors
     
 //    @State private var currentValue = ""
 //    @State private var currentLabel = ""
@@ -42,15 +41,15 @@ struct PieChart: View {
                 ZStack  {
                     ForEach(0..<self.data.count){ i in
                         ZStack {
-                            PieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
+                            EmojiPieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
                         }
                     }
                 }
                 .gesture(DragGesture(minimumDistance: 0)
                             .onChanged { position in
-                                let pieSize = geometry.frame(in: .local)
+                                //let pieSize = geometry.frame(in: .local)
                                 touchLocation   =   position.location
-                                updateCurrentValue(inPie: pieSize)
+                                //updateCurrentValue(inPie: pieSize)
                     }
                 )
             }
@@ -58,13 +57,13 @@ struct PieChart: View {
         }
         
     }
-    func updateCurrentValue(inPie pieSize: CGRect)  {
-        guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return}
-        let currentIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) ?? -1
-        
+    
+//    func updateCurrentValue(inPie pieSize: CGRect)  {
+//        guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return}
+//        let currentIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) ?? -1
 //        currentLabel = data[currentIndex].label
 //        currentValue = "\(data[currentIndex].value)"
-    }
+//    }
     
     func sliceIsTouched(index: Int, inPie pieSize: CGRect) -> Bool {
         guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return false }
@@ -80,10 +79,10 @@ struct PieChart: View {
     
 }
 
-struct PieChart_Previews: PreviewProvider {
+struct EmojiPieChart_Previews: PreviewProvider {
     @State static var moodStatus = Mood.happiness
     @State static var backgroundColor = Color("happiness")
     static var previews: some View {
-        PieChart(title: "MyPieChart", data: chartDataSet, separatorColor: Color(UIColor.systemBackground), accentColors: pieColors, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
+        EmojiPieChart(data: emojiChartDataSet, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
     }
 }

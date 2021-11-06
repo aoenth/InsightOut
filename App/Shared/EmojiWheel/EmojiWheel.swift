@@ -22,7 +22,7 @@ struct EmojiWheel: View {
         GeometryReader { proxy in
             let width = proxy.size.width
             ZStack {
-                PieChart(title: "CHART", data: chartDataSet, separatorColor: Color.white, accentColors: pieColors, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
+                EmojiPieChart(data: emojiChartDataSet, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
                 
                 ZStack {
                     Circle()
@@ -36,8 +36,7 @@ struct EmojiWheel: View {
                         .frame(width: width * 0.45, height: width * 0.45)
                         .foregroundColor(backgroundColor)
                         .scaleEffect(isAnimated ? animationScale : 1)
-                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/(duration: animationDuration))
-                    
+                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/(duration: animationDuration)) 
                 }
                 .onTapGesture {
                     onTap()

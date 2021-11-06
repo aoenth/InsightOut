@@ -14,7 +14,7 @@ struct ChartData {
      let value: CGFloat
  }
  
- let chartDataSet = [
+ let emojiChartDataSet = [
     ChartData(label: "Happines", mood: Mood.happiness, value: 360/7),
     ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7),
     ChartData(label: "Love", mood: Mood.love, value: 360/7),
@@ -24,3 +24,14 @@ struct ChartData {
     ChartData(label: "Anger", mood: Mood.anger, value: 360/7),
      
  ]
+
+let weekChartDataSet = [
+   ChartData(label: "Happines", mood: Mood.happiness, value: 360/7),
+   ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7),
+   ChartData(label: "Love", mood: Mood.love, value: 360/7),
+   ChartData(label: "Disgust", mood: Mood.disgust, value: 360/7),
+   ChartData(label: "Fear", mood: Mood.fear, value: 360/7),
+   ChartData(label: "Surprised", mood: Mood.surprised, value: 360/7),
+   ChartData(label: "Anger", mood: Mood.anger, value: 360/7),
+    
+]
