@@ -21,7 +21,7 @@ public struct MoodEntry {
     public let mood: Mood
     public let label: Label
 
-    public init(time: Date, mood: Mood, label: Label) {
+    public init(time: Date, mood: Mood, label: Label = .family) {
         self.time = time
         self.mood = mood
         self.label = label
