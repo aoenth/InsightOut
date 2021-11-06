@@ -3,14 +3,8 @@ import XCTest
 
 final class MoodEntryRepositoryTests: XCTestCase {
 
-    func test_init() {
-        let context = CoreDataStack(inMemory: true).context
-        _ = MoodEntryRepository(context: context)
-    }
-
-    func test_persistence() throws {
-        let context = CoreDataStack(inMemory: true).context
-        let sut = MoodEntryRepository(context: context)
+    func test_saveMood_shouldPersistMood() throws {
+        let (_, sut) = makeSUT()
         let date = Date(timeIntervalSince1970: 1)
         sut.saveMood(.surprised, date: date, label: .work)
 
@@ -22,9 +16,8 @@ final class MoodEntryRepositoryTests: XCTestCase {
     }
 
 
-    func test_persistence_moreThan1() throws {
-        let context = CoreDataStack(inMemory: true).context
-        let sut = MoodEntryRepository(context: context)
+    func test_saveMultipleMoods_shouldBePersisted() throws {
+        let (_, sut) = makeSUT()
         let dates = [1, 86400, 8640000].map(Date.init(timeIntervalSince1970:))
         let moods = Mood.allCases
         let labels = Label.allCases
@@ -41,5 +34,13 @@ final class MoodEntryRepositoryTests: XCTestCase {
             let result = sut.moods(forDate: date)
             XCTAssertEqual(result.count, moods.count * labels.count)
         }
+    }
+
+    // MARK: - Helpers
+
+    private func makeSUT() -> (context: NSManagedObjectContext, sut: MoodEntryRepository) {
+        let context = CoreDataStack(inMemory: true).context
+        let sut = MoodEntryRepository(context: context)
+        return (context, sut)
     }
 }
