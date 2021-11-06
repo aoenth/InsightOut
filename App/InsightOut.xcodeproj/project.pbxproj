@@ -129,13 +129,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CDF2C899273736820071571E /* EmotionsOfThjeDay */ = {
+		CDF2C899273736820071571E /* EmotionsOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
 				CDF2C89A273736820071571E /* EmotionColorSquareView.swift */,
 				CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */,
 			);
-			path = EmotionsOfThjeDay;
+			path = EmotionsOfTheDay;
 			sourceTree = "<group>";
 		};
 		E1F11473273701DC007BFCEE /* EmojiWheel */ = {

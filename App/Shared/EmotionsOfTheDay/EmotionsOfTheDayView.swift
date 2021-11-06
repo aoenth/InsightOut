@@ -9,7 +9,6 @@ import SwiftUI
 import InsightOut
 
 struct EmotionsOfTheDayView: View {
-//    @Binding var moods: [MoodEntry]
     @Binding var colors: [Color]
     
     var body: some View {
