@@ -37,12 +37,21 @@ struct HomeView: View {
                     .frame(width: 300, height: 300)
                     .padding(.bottom, 50)
             }
-        }
+        }.onAppear(perform: load)
     }
 
-    func onTap() {
+    private func load() {
+        let moods = loader.moods(forDate: Date())
+        colors = moods
+            .map(\.mood)
+            .map(String.init(describing:))
+            .map { Color($0) }
+    }
+
+    private func onTap() {
         let colorName = String(describing: moodStatus)
         let color = Color(colorName)
+        loader.saveMood(moodStatus, date: Date(), label: .family)
         colors.append(color)
     }
 }
