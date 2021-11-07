@@ -20,10 +20,10 @@ struct WeekPieChart: View {
         entries.enumerated().forEach {(index, data) in
             let value = normalizedValue(index: index, data: self.entries)
             let mood = self.entries[index].mood
-            if slices.isEmpty {
-                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
+            if let last = slices.last {
+                slices.append(.init(startDegree: last.endDegree, endDegree: (value * 360 + last.endDegree), mood: mood))
             } else {
-                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood))
+                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
             }
         }
         return slices
@@ -33,7 +33,16 @@ struct WeekPieChart: View {
         VStack {
             GeometryReader { geometry in
                 ForEach(0..<self.entries.count) { i in
-                    WeekPieChartSlice(mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: Color(String(describing: pieSlices[i].mood)), separatorColor: separatorColor, size: geometry.frame(in: .local).width)
+                    WeekPieChartSlice(
+                        mood: pieSlices[i].mood,
+                        center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY),
+                        radius: geometry.frame(in: .local).width/2,
+                        startDegree: pieSlices[i].startDegree,
+                        endDegree: pieSlices[i].endDegree,
+                        isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)),
+                        accentColor: Color(String(describing: pieSlices[i].mood)),
+                        separatorColor: separatorColor,
+                        size: geometry.frame(in: .local).width)
                 }
                 .gesture(DragGesture(minimumDistance: 0).onChanged { position in
                     touchLocation = position.location

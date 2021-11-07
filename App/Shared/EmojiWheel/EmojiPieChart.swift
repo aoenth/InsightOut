@@ -22,10 +22,10 @@ struct EmojiPieChart: View {
         data.enumerated().forEach {(index, data) in
             let value = normalizedValue(index: index, data: self.data)
             let mood = self.data[index].mood
-            if slices.isEmpty {
-                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
+            if let last = slices.last {
+                slices.append(.init(startDegree: last.endDegree, endDegree: (value * 360 + last.endDegree), mood: mood))
             } else {
-                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood))
+                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
             }
         }
         return slices

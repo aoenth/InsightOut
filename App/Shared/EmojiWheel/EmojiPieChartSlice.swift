@@ -55,7 +55,17 @@ struct EmojiPieChartSlice: View {
 
 struct EmojiPieChartSlice_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiPieChartSlice(mood: Mood.happiness, center: CGPoint(x: 350, y: 200), radius: 300, startDegree: 90, endDegree: 90 + 90, isTouched: true, accentColor: .orange, separatorColor: .black, size: 600)
+        EmojiPieChartSlice(
+            mood: Mood.happiness,
+            center: CGPoint(x: 350, y: 200),
+            radius: 300,
+            startDegree: 90,
+            endDegree: 90 + 90,
+            isTouched: true,
+            accentColor: .orange,
+            separatorColor: .black,
+            size: 600
+        )
         
     }
 }
