@@ -20,7 +20,7 @@ struct MonthView: View {
         // Limit the number of days displayed to 5 weeks
         let maxNumberOfDaysShown = 5 * 7
         let data: [Date: [MoodEntry]] = {
-            let startDate = entries.first!.key.startOfMonth()
+            let startDate = Date().startOfMonth()
             let endDate = startDate.endOfMonth()
             let weekday = Calendar.current.component(.weekday, from: startDate)
             
@@ -33,7 +33,7 @@ struct MonthView: View {
             
             let startDay = calendar.component(.day, from: startDate)
             let endDay = calendar.component(.day, from: endDate)
-            for x in startDay..<endDay {
+            for x in startDay..<endDay+6 {
                 let date = calendar.startOfDay(for: calendar.date(byAdding: .day, value: x, to: startDate)!)
                 data[date] = [MoodEntry]()
             }
@@ -42,7 +42,7 @@ struct MonthView: View {
                 data[calendar.startOfDay(for: entry.key)] = entry.value
             }
             
-            return data
+            return data.filter { $0.key >= calendar.date(byAdding: .day, value: -weekday, to: startDate)! }
         }()
         
         LazyVGrid(columns: columns) {
@@ -70,6 +70,8 @@ struct MonthView: View {
                     .frame(height: 40)
                 }
             }
+        }.onAppear {
+            print(entries)
         }
     }
     
@@ -93,10 +95,13 @@ struct MonthView: View {
 @available(iOS 15, *)
 struct MonthView_Previews: PreviewProvider {
     static let entries: [Date: [MoodEntry]] = {
-        (0 ..< 3).reduce(into: [Date: [MoodEntry]]()) { prev, day in
-            let date = Date(timeIntervalSince1970: Double(day) * 86400)
+        let startOfDate = Calendar.current.startOfDay(for: Date())
+        return (-30 ..< 30).reduce(into: [Date: [MoodEntry]]()) { prev, day in
+            let date = Calendar.current.date(byAdding: .day, value: day, to: startOfDate)!
             let moods = Mood.allCases.shuffled().map { MoodEntry(time: date, mood: $0) }
-            prev[date] = moods
+            if day % 2 == 0 {
+                prev[date] = moods
+            }
         }
     }()
     
@@ -115,7 +120,7 @@ extension MoodEntry: Identifiable {
 
 extension Date {
     func startOfMonth() -> Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))! //FIXME: -1h so im in the previouse month...
     }
     
     func endOfMonth() -> Date {
