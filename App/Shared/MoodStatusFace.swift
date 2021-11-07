@@ -11,7 +11,6 @@ import InsightOut
 struct MoodStatusFace: View {
     let mood: Mood
     var body: some View {
-       
         Emoji(mood: mood)
     }
 }
