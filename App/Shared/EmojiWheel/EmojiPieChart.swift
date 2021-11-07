@@ -4,6 +4,7 @@
 //
 //  Created by Vincent Nguyen on 11/6/21
 // WITH GREAT HELP FROM : https://github.com/BLCKBIRDS/Pie-Chart-in-SwiftUI
+
 import SwiftUI
 import InsightOut
 
@@ -13,8 +14,6 @@ struct EmojiPieChart: View {
     let accentColors = pieColors
 
     @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
-    
-
     @Binding var moodStatus: Mood
     @Binding var backgroundColor: Color
     
@@ -23,11 +22,10 @@ struct EmojiPieChart: View {
         data.enumerated().forEach {(index, data) in
             let value = normalizedValue(index: index, data: self.data)
             let mood = self.data[index].mood
-            let label = self.data[index].label
-            if slices.isEmpty {
-                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood, label: label)))
+            if let last = slices.last {
+                slices.append(.init(startDegree: last.endDegree, endDegree: (value * 360 + last.endDegree), mood: mood))
             } else {
-                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood, label: label))
+                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
             }
         }
         return slices
@@ -39,15 +37,13 @@ struct EmojiPieChart: View {
                 ZStack  {
                     ForEach(0..<self.data.count){ i in
                         ZStack {
-                            EmojiPieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
+                            EmojiPieChartSlice(mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
                         }
                     }
                 }
-                .gesture(DragGesture(minimumDistance: 0)
-                            .onChanged { position in
-                                touchLocation   =   position.location
-                    }
-                )
+                .gesture(DragGesture(minimumDistance: 0).onChanged { position in
+                    touchLocation = position.location
+                })
             }
             .aspectRatio(contentMode: .fit)
         }
@@ -59,13 +55,11 @@ struct EmojiPieChart: View {
         guard let selectedSliceIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) else { return false }
         DispatchQueue.main.async {
             moodStatus = pieSlices[selectedSliceIndex].mood
-            
             backgroundColor = accentColors[selectedSliceIndex]
             
         }
         return pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) == index
     }
-    
 }
 
 struct EmojiPieChart_Previews: PreviewProvider {
@@ -73,13 +67,13 @@ struct EmojiPieChart_Previews: PreviewProvider {
     @State static var backgroundColor = Color("happiness")
     
     static let emojiChartDataSet = [
-      ChartData(label: "Happines", mood: Mood.happiness, value: 360/7),
-      ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7),
-      ChartData(label: "Love", mood: Mood.love, value: 360/7),
-      ChartData(label: "Disgust", mood: Mood.disgust, value: 360/7),
-      ChartData(label: "Fear", mood: Mood.fear, value: 360/7),
-      ChartData(label: "Surprised", mood: Mood.surprised, value: 360/7),
-      ChartData(label: "Anger", mood: Mood.anger, value: 360/7),
+      ChartData(mood: Mood.happiness, value: 360/7),
+      ChartData(mood: Mood.sadness, value: 360/7),
+      ChartData(mood: Mood.love, value: 360/7),
+      ChartData(mood: Mood.disgust, value: 360/7),
+      ChartData(mood: Mood.fear, value: 360/7),
+      ChartData(mood: Mood.surprised, value: 360/7),
+      ChartData(mood: Mood.anger, value: 360/7),
        
    ]
     

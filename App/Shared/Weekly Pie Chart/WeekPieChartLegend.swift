@@ -7,32 +7,62 @@
 
 import SwiftUI
 import InsightOut
-struct WeekPieChartLegend: View {
 
+struct WeekPieChartLegend: View {
+    let entries: [ChartData]
+    
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
-            HStack {
-                
-                ForEach(Mood.allCases, id: \.self) { mood in
-                    ZStack {
-                        Circle()
-                            .fill(Color(String(describing: mood)))
-                            .frame(width: width * 0.12, height: width * 0.12)
+            let total = calculateTotal(entries)
+            ScrollView {
+
+                ForEach(entries) { entry in
+                    HStack {
+                        ZStack {
+                            Circle()
+                                .fill(Color(String(describing: entry.mood)))
+                                .frame(width: width * 0.12, height: width * 0.12)
+                            
+                            Emoji(mood: entry.mood)
+                                .foregroundColor(Color(String(describing: entry.mood)))
+                                .frame(width: width * 0.08, height: width * 0.08)
+                            
+                        }
+                        let frequency = entry.value
                         
-                        Emoji(mood: mood)
-                            .foregroundColor(Color(String(describing: mood)))
-                            .frame(width: width * 0.08, height: width * 0.08)
+                        let percentage = frequency / total
+                        Text(" \(String(format: "%.0f", round(percentage * 100)))%")
+                            .font(Font.system(size: width * 0.1, weight: .bold))
                     }
+                    
                 }
             }
-            .frame(width: width, height: width * 0.12)
+            .frame(width: width, height: width * 0.5)
         }
+    }
+    func calculateTotal(_ entries: [ChartData]) -> CGFloat {
+        var total: CGFloat = 0
+        for entry in entries {
+            total += entry.value
+        }
+        return total
+    }
+}
+
+extension ChartData: Identifiable {
+    var id: String {
+        "\(mood.rawValue) + \(value)"
     }
 }
 
 struct WeekPieChartLegend_Previews: PreviewProvider {
     static var previews: some View {
-        WeekPieChartLegend()
+        let entries: [ChartData] = [
+            ChartData(mood: Mood.fear, value: 7),
+            ChartData(mood: Mood.surprised, value: 3),
+            ChartData(mood: Mood.anger, value: 3)
+        ]
+        WeekPieChartLegend(entries: entries)
     }
 }

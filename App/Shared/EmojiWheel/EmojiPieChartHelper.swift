@@ -23,7 +23,6 @@ struct PieSlice {
     var startDegree: Double
     var endDegree: Double
     let mood: Mood
-    let label: String
 }
 
 func normalizedValue(index: Int, data: [ChartData]) -> Double {
@@ -33,8 +32,6 @@ func normalizedValue(index: Int, data: [ChartData]) -> Double {
     }
     return data[index].value/total
 }
-
-
 
 func angleAtTouchLocation(inPie pieSize: CGRect, touchLocation: CGPoint) ->  Double?  {
     let dx = touchLocation.x - pieSize.midX
@@ -50,5 +47,5 @@ func angleAtTouchLocation(inPie pieSize: CGRect, touchLocation: CGPoint) ->  Dou
         return (180 + angleAtTouchLocation) + 180
     } else {
         return angleAtTouchLocation
-     }
- }
+    }
+}

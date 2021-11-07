@@ -9,13 +9,13 @@ import SwiftUI
 import InsightOut
 
 struct HomeView: View {
-
     @EnvironmentObject var loader: Loader
     @State private var moodStatus = Mood.happiness
     @State private var backgroundColor = Color("happiness")
     @State private var colors = [Color]()
 
     var body: some View {
+        
         ZStack {
             LinearGradient(gradient: Gradient(colors: [backgroundColor, .white]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
@@ -24,7 +24,7 @@ struct HomeView: View {
                     .clipShape(Capsule())
                     .overlay(
                         Capsule()
-                            .stroke(lineWidth: 2)
+                            .stroke(lineWidth: 3)
                             .foregroundColor(.white)
                     )
                     .frame(minHeight: 25, maxHeight: 50)
@@ -52,7 +52,9 @@ struct HomeView: View {
         let colorName = String(describing: moodStatus)
         let color = Color(colorName)
         loader.saveMood(moodStatus, date: Date(), label: .family)
-        colors.append(color)
+        withAnimation(.easeInOut) {
+            colors.append(color)
+        }
     }
 }
 

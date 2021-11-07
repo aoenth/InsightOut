@@ -14,11 +14,19 @@ public struct CoreDataStack {
     public static var preview: CoreDataStack = {
         let result = CoreDataStack(inMemory: true)
         let viewContext = result.container.viewContext
+        let sut = MoodEntryRepository(context: viewContext)
+        let dates = (-30 ..< 30).map { day in
+            Calendar.current.date(byAdding: .day, value: day, to: Date())!
+        }
+        for date in dates {
+            let mood = Mood.allCases.randomElement()!
+            sut.saveMood(mood, date: date, label: .family)
+        }
         do {
             try viewContext.save()
         } catch {
             let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            fatalError("Unresolved error (nsError), (nsError.userInfo)")
         }
         return result
     }()

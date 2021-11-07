@@ -16,10 +16,13 @@ extension Dictionary where Value: Equatable {
 }
 
 struct OverviewView: View {
+    @EnvironmentObject var loader: Loader
+
+    @State private var selectedTime = 0
     
-    @State var selectedTime = 0
-    
-    @State var selectedEmotion = 7
+    @State private var selectedEmotion = 7
+
+    @State private var entries = [Date: [MoodEntry]]()
 
     let emotionLookup = [
         "happiness":0,
@@ -40,6 +43,8 @@ struct OverviewView: View {
                 .ignoresSafeArea()
             
             VStack{
+
+                WeekView(entries: entries.values.flatMap { $0 })
                 
                 Picker("Tap Me", selection: $selectedTime) {
                     Text("Week").tag(0)
@@ -49,12 +54,18 @@ struct OverviewView: View {
                 
 
             }.padding()
-        }
+        }.onAppear(perform: load)
+    }
+
+    func load() {
+        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        entries = loader.moods(forWeekStarting: startDate)
     }
 }
 
 struct OverviewView_Previews: PreviewProvider {
     static var previews: some View {
         OverviewView()
+            .environmentObject(Loader(context: CoreDataStack.preview.context))
     }
 }

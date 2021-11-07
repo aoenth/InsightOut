@@ -17,7 +17,6 @@ func cosd(degrees: Double) -> Double {
 }
 
 struct EmojiPieChartSlice: View {
-    let label: String
     let mood: Mood
     var center: CGPoint
     var radius: CGFloat
@@ -36,12 +35,11 @@ struct EmojiPieChartSlice: View {
         return path
     }
     
-    
     var body: some View {
         ZStack {
             path
                 .fill(accentColor)
-                .overlay(path.stroke(separatorColor, lineWidth: 2))
+                .overlay(path.stroke(separatorColor, lineWidth: 3))
                 .scaleEffect(isTouched ? 1.1 : 1)
                 .animation(Animation.spring())
             
@@ -57,7 +55,17 @@ struct EmojiPieChartSlice: View {
 
 struct EmojiPieChartSlice_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiPieChartSlice(label: "Happiness", mood: Mood.happiness, center: CGPoint(x: 350, y: 200), radius: 300, startDegree: 90, endDegree: 90 + 90, isTouched: true, accentColor: .orange, separatorColor: .black, size: 600)
+        EmojiPieChartSlice(
+            mood: Mood.happiness,
+            center: CGPoint(x: 350, y: 200),
+            radius: 300,
+            startDegree: 90,
+            endDegree: 90 + 90,
+            isTouched: true,
+            accentColor: .orange,
+            separatorColor: .black,
+            size: 600
+        )
         
     }
 }

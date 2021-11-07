@@ -9,7 +9,6 @@ import SwiftUI
 import InsightOut
 
 struct WeekPieChartSlice: View {
-    let label: String
     let mood: Mood
     var center: CGPoint
     var radius: CGFloat
@@ -22,7 +21,12 @@ struct WeekPieChartSlice: View {
     
     var path: Path {
         var path = Path()
-        path.addArc(center: center, radius: radius, startAngle: Angle(degrees: startDegree), endAngle: Angle(degrees: endDegree), clockwise: false)
+        path.addArc(
+            center: center,
+            radius: radius,
+            startAngle: Angle(degrees: startDegree),
+            endAngle: Angle(degrees: endDegree),
+            clockwise: false)
         path.addLine(to: center)
         path.closeSubpath()
         return path
@@ -31,7 +35,7 @@ struct WeekPieChartSlice: View {
     var body: some View {
         path
             .fill(accentColor)
-            .overlay(path.stroke(separatorColor, lineWidth: 2))
+            .overlay(path.stroke(separatorColor, lineWidth: 3))
             .scaleEffect(isTouched ? 1.1 : 1)
             .animation(Animation.spring())
     }
@@ -39,7 +43,14 @@ struct WeekPieChartSlice: View {
 
 struct PieChartSlice_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiPieChartSlice(label: "Happiness", mood: Mood.happiness, center: CGPoint(x: 350, y: 200), radius: 300, startDegree: 90, endDegree: 90 + 90, isTouched: true, accentColor: .orange, separatorColor: .black, size: 600)
-        
+        EmojiPieChartSlice(
+            mood: Mood.happiness,
+            center: CGPoint(x: 350, y: 200),
+            radius: 300, startDegree: 90,
+            endDegree: 90 + 90,
+            isTouched: true,
+            accentColor: .orange,
+            separatorColor: .black,
+            size: 600)
     }
 }

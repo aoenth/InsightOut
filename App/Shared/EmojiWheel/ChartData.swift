@@ -9,7 +9,6 @@ import SwiftUI
 import InsightOut
 
 struct ChartData {
-     var label: String
      var mood: Mood
      let value: CGFloat
 }

@@ -10,34 +10,62 @@ import InsightOut
 
 struct WeekView: View {
     
-    let weekChartDataSet: [ChartData]
+    let entries: [MoodEntry]
     
     var body: some View {
-        GeometryReader { proxy in
-            let width = proxy.size.width
-            VStack {
-                
-                WeekPieChart(data: weekChartDataSet)
-                    .frame(width: width, height: width)
-                    .padding(.bottom, width * 0.1)
-                
-                WeekPieChartLegend()
-                    .frame(width: width, height: width)
-                
-                
+        VStack {
+            let data = createChartData(findSavedEmojis(entries))
+            WeekPieChart(entries: data)
+                .padding(.bottom)
+            WeekPieChartLegend(entries: data)
+        }
+    }
+    
+    func findSavedEmojis(_ entries: [MoodEntry]) -> [Mood] {
+        var savedEmojis: [Mood] = []
+        for mood in Mood.allCases {
+            for entry in entries {
+                if mood == entry.mood {
+                    savedEmojis.append(entry.mood)
+                }
             }
         }
+        return savedEmojis
+    }
+    
+    func createChartData(_ savedEmojis: [Mood]) -> [ChartData] {
+        var chartData: [ChartData] = []
+        for mood in Mood.allCases {
+            var frequency: CGFloat = 0
+            for savedEmoji in savedEmojis {
+                if mood == savedEmoji {
+                    frequency += 1
+                }
+            }
+            if frequency != 0 {
+                chartData.append(ChartData(mood: mood, value: frequency))
+            }
+        }
+        return chartData
     }
 }
 
 struct WeekView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
-        let weekChartDataSet: [ChartData] = [
-            ChartData(label: "Happines", mood: Mood.happiness, value: 3),
-            ChartData(label: "Sadness", mood: Mood.sadness, value: 5),
-            ChartData(label: "Love", mood: Mood.love, value: 9)
-        ]
-        WeekView(weekChartDataSet: weekChartDataSet)
+        let entries: [MoodEntry] = {
+            var entries = [MoodEntry]()
+            let dates = (-30 ..< 30).map { day in
+                Calendar.current.date(byAdding: .day, value: day, to: Date())!
+            }
+
+            for date in dates {
+                let mood = Mood.allCases.randomElement()!
+                entries.append(MoodEntry(time: date, mood: mood))
+            }
+            return entries
+        }()
+
+        WeekView(entries: entries)
     }
 }

@@ -19,14 +19,13 @@ struct EmojiWheel: View {
     let onTap: () -> Void
 
     let emojiChartDataSet = [
-        ChartData(label: "Happines", mood: Mood.happiness, value: 360/7),
-        ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7),
-        ChartData(label: "Love", mood: Mood.love, value: 360/7),
-        ChartData(label: "Disgust", mood: Mood.disgust, value: 360/7),
-        ChartData(label: "Fear", mood: Mood.fear, value: 360/7),
-        ChartData(label: "Surprised", mood: Mood.surprised, value: 360/7),
-        ChartData(label: "Anger", mood: Mood.anger, value: 360/7),
-        
+        ChartData(mood: Mood.happiness, value: 360/7),
+        ChartData(mood: Mood.sadness, value: 360/7),
+        ChartData(mood: Mood.love, value: 360/7),
+        ChartData(mood: Mood.disgust, value: 360/7),
+        ChartData(mood: Mood.fear, value: 360/7),
+        ChartData(mood: Mood.surprised, value: 360/7),
+        ChartData(mood: Mood.anger, value: 360/7),
     ]
     
     var body: some View {
@@ -34,7 +33,6 @@ struct EmojiWheel: View {
             let width = proxy.size.width
             ZStack {
                 EmojiPieChart(data: emojiChartDataSet, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
-                
                 ZStack {
                     Circle()
                         .fill(Color.white)
@@ -50,7 +48,6 @@ struct EmojiWheel: View {
                 }
                 .onTapGesture {
                     onTap()
-                    print("hi")
                     isAnimated = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
                         isAnimated = false
