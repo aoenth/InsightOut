@@ -8,18 +8,13 @@
 import SwiftUI
 import InsightOut
 
-struct WeekPieChart: View {
-    let separatorColor = Color.white
-    let accentColors = pieColors
-    let entries: [ChartData]
-    @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
-    
+extension Array where Element == ChartData {
     var pieSlices: [PieSlice] {
         var slices = [PieSlice]()
-        
-        entries.enumerated().forEach {(index, data) in
-            let value = normalizedValue(index: index, data: self.entries)
-            let mood = self.entries[index].mood
+
+        enumerated().forEach {(index, data) in
+            let value = normalizedValue(index: index, data: self)
+            let mood = self[index].mood
             if let last = slices.last {
                 slices.append(.init(startDegree: last.endDegree, endDegree: (value * 360 + last.endDegree), mood: mood))
             } else {
@@ -28,19 +23,32 @@ struct WeekPieChart: View {
         }
         return slices
     }
-    
+}
+
+extension PieSlice: Identifiable {
+    var id: String {
+        "\(startDegree)" + "\(endDegree)" + "\(mood.rawValue)"
+    }
+}
+
+struct WeekPieChart: View {
+    let separatorColor = Color.white
+    let accentColors = pieColors
+    let entries: [ChartData]
+    @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
+
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                ForEach(0 ..< pieSlices.count) { i in
+                ForEach(entries.pieSlices) { slice in
                     WeekPieChartSlice(
-                        mood: pieSlices[i].mood,
+                        mood: slice.mood,
                         center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY),
                         radius: geometry.frame(in: .local).width/2,
-                        startDegree: pieSlices[i].startDegree,
-                        endDegree: pieSlices[i].endDegree,
-                        isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)),
-                        accentColor: Color(String(describing: pieSlices[i].mood)),
+                        startDegree: slice.startDegree,
+                        endDegree: slice.endDegree,
+                        isTouched: sliceIsTouched(slice: slice, inPie: geometry.frame(in:  .local)),
+                        accentColor: Color(String(describing: slice.mood)),
                         separatorColor: separatorColor,
                         size: geometry.frame(in: .local).width)
                 }
@@ -52,10 +60,15 @@ struct WeekPieChart: View {
         .aspectRatio(contentMode: .fit)
     }
     
-    func sliceIsTouched(index: Int, inPie pieSize: CGRect) -> Bool {
+    func sliceIsTouched(slice: PieSlice, inPie pieSize: CGRect) -> Bool {
         guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return false }
-        
-        return pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) == index
+        let findClosure: (PieSlice) -> Bool = {
+            $0.startDegree < angle && $0.endDegree > angle
+        }
+        if let foundSlice = entries.pieSlices.first(where: findClosure) {
+            return foundSlice.id == slice.id
+        }
+        return false
     }
 }
 
