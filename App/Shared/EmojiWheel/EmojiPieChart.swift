@@ -23,11 +23,10 @@ struct EmojiPieChart: View {
         data.enumerated().forEach {(index, data) in
             let value = normalizedValue(index: index, data: self.data)
             let mood = self.data[index].mood
-            let label = self.data[index].label
             if slices.isEmpty {
-                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood, label: label)))
+                slices.append((.init(startDegree: 0, endDegree: value * 360, mood: mood)))
             } else {
-                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood, label: label))
+                slices.append(.init(startDegree: slices.last!.endDegree, endDegree: (value * 360 + slices.last!.endDegree), mood: mood))
             }
         }
         return slices
@@ -39,7 +38,7 @@ struct EmojiPieChart: View {
                 ZStack  {
                     ForEach(0..<self.data.count){ i in
                         ZStack {
-                            EmojiPieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
+                            EmojiPieChartSlice(mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
                         }
                     }
                 }
@@ -73,13 +72,13 @@ struct EmojiPieChart_Previews: PreviewProvider {
     @State static var backgroundColor = Color("happiness")
     
     static let emojiChartDataSet = [
-      ChartData(label: "Happines", mood: Mood.happiness, value: 360/7),
-      ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7),
-      ChartData(label: "Love", mood: Mood.love, value: 360/7),
-      ChartData(label: "Disgust", mood: Mood.disgust, value: 360/7),
-      ChartData(label: "Fear", mood: Mood.fear, value: 360/7),
-      ChartData(label: "Surprised", mood: Mood.surprised, value: 360/7),
-      ChartData(label: "Anger", mood: Mood.anger, value: 360/7),
+      ChartData(mood: Mood.happiness, value: 360/7),
+      ChartData(mood: Mood.sadness, value: 360/7),
+      ChartData(mood: Mood.love, value: 360/7),
+      ChartData(mood: Mood.disgust, value: 360/7),
+      ChartData(mood: Mood.fear, value: 360/7),
+      ChartData(mood: Mood.surprised, value: 360/7),
+      ChartData(mood: Mood.anger, value: 360/7),
        
    ]
     

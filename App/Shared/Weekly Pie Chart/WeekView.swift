@@ -9,38 +9,67 @@ import SwiftUI
 import InsightOut
 
 struct WeekView: View {
-    // MARK: THESE 2 Arrays could be just 1 thing, and value in chart data could just be a count of a mood type?
-    let weekChartDataSet: [ChartData]
-    let savedEmojis: [Mood]
+    
+    // MARK: I'm not sure what type of entry i should use
+    // let entries: [Date: [MoodEntry]]
+    let entries: [MoodEntry]
+    
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
             VStack {
-                
-                WeekPieChart(data: weekChartDataSet)
+                let data = createChartData(findSavedEmojis(entries))
+                WeekPieChart(entries: data)
                     .frame(width: width, height: width)
-                    .padding(.bottom, width * 0.1)
+                    .padding(.bottom, width * 0.3)
                 
-                WeekPieChartLegend(savedEmojis:savedEmojis)
+                
+                WeekPieChartLegend(entries: data)
                     .frame(width: width, height: width)
-                
                 
             }
         }
+    }
+    
+    func findSavedEmojis(_ entries: [MoodEntry]) -> [Mood] {
+        var savedEmojis: [Mood] = []
+        for mood in Mood.allCases {
+            for entry in entries {
+                if mood == entry.mood {
+                    savedEmojis.append(entry.mood)
+                }
+            }
+        }
+        return savedEmojis
+    }
+    
+    func createChartData(_ savedEmojis: [Mood]) -> [ChartData] {
+        var chartData: [ChartData] = []
+        for mood in Mood.allCases {
+            var frequency: CGFloat = 0
+            for savedEmoji in savedEmojis {
+                if mood == savedEmoji {
+                    frequency += 1
+                }
+            }
+            if frequency != 0 {
+                chartData.append(ChartData(mood: mood, value: frequency))
+            }
+        }
+        return chartData
     }
 }
 
 struct WeekView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let weekChartDataSet: [ChartData] = [
-            ChartData(label: "Happines", mood: Mood.happiness, value: 3),
-            ChartData(label: "Sadness", mood: Mood.sadness, value: 5),
+        let entries = [
+            MoodEntry(time: Date(), mood: Mood.sadness),
+            MoodEntry(time: Date(), mood: Mood.happiness),
+            MoodEntry(time: Date(), mood: Mood.love),
+            MoodEntry(time: Date(), mood: Mood.love),
+            MoodEntry(time: Date(), mood: Mood.love)
         ]
-        let savedEmojis = [
-            Mood.happiness,
-            Mood.sadness
-        ]
-        WeekView(weekChartDataSet: weekChartDataSet, savedEmojis: savedEmojis)
+        WeekView(entries: entries)
     }
 }

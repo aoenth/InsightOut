@@ -23,7 +23,6 @@ struct PieSlice {
     var startDegree: Double
     var endDegree: Double
     let mood: Mood
-    let label: String
 }
 
 func normalizedValue(index: Int, data: [ChartData]) -> Double {
