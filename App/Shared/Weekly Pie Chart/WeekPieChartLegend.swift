@@ -8,21 +8,26 @@
 import SwiftUI
 import InsightOut
 struct WeekPieChartLegend: View {
-
+    let savedEmojis: [Mood] // TODO: it might be MoodEntry instead?
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
-            HStack {
-                
-                ForEach(Mood.allCases, id: \.self) { mood in
-                    ZStack {
-                        Circle()
-                            .fill(Color(String(describing: mood)))
-                            .frame(width: width * 0.12, height: width * 0.12)
-                        
-                        Emoji(mood: mood)
-                            .foregroundColor(Color(String(describing: mood)))
-                            .frame(width: width * 0.08, height: width * 0.08)
+            VStack {
+                ForEach(savedEmojis, id: \.self) { emoji in
+                    
+                    HStack {
+                        ZStack {
+                            Circle()
+                                .fill(Color(String(describing: emoji)))
+                                .frame(width: width * 0.12, height: width * 0.12)
+                            
+                            Emoji(mood: emoji)
+                                .foregroundColor(Color(String(describing: emoji)))
+                                .frame(width: width * 0.08, height: width * 0.08)
+                            
+                        }
+                        Text("Percentage %")
+                            .font(Font.system(size: width * 0.1, weight: .bold))
                     }
                 }
             }
@@ -33,6 +38,10 @@ struct WeekPieChartLegend: View {
 
 struct WeekPieChartLegend_Previews: PreviewProvider {
     static var previews: some View {
-        WeekPieChartLegend()
+        let savedEmojis = [
+            Mood.happiness,
+            Mood.sadness
+        ]
+        WeekPieChartLegend(savedEmojis: savedEmojis)
     }
 }

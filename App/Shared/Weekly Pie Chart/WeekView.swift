@@ -9,9 +9,9 @@ import SwiftUI
 import InsightOut
 
 struct WeekView: View {
-    
+    // MARK: THESE 2 Arrays could be just 1 thing, and value in chart data could just be a count of a mood type?
     let weekChartDataSet: [ChartData]
-    
+    let savedEmojis: [Mood]
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
@@ -21,7 +21,7 @@ struct WeekView: View {
                     .frame(width: width, height: width)
                     .padding(.bottom, width * 0.1)
                 
-                WeekPieChartLegend()
+                WeekPieChartLegend(savedEmojis:savedEmojis)
                     .frame(width: width, height: width)
                 
                 
@@ -36,8 +36,11 @@ struct WeekView_Previews: PreviewProvider {
         let weekChartDataSet: [ChartData] = [
             ChartData(label: "Happines", mood: Mood.happiness, value: 3),
             ChartData(label: "Sadness", mood: Mood.sadness, value: 5),
-            ChartData(label: "Love", mood: Mood.love, value: 9)
         ]
-        WeekView(weekChartDataSet: weekChartDataSet)
+        let savedEmojis = [
+            Mood.happiness,
+            Mood.sadness
+        ]
+        WeekView(weekChartDataSet: weekChartDataSet, savedEmojis: savedEmojis)
     }
 }
