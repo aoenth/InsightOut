@@ -14,6 +14,10 @@
 		7BA532E32735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532E42735E64500CBE2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA532D12735E64500CBE2C4 /* Assets.xcassets */; };
 		7BA532F4273604AE00CBE2C4 /* InsightOut in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA532F3273604AE00CBE2C4 /* InsightOut */; };
+		7BADC1E627373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
+		7BADC1E727373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
+		7BE3F203273782F700FD72B4 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3F202273782F700FD72B4 /* Loader.swift */; };
+		7BE3F204273782F700FD72B4 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3F202273782F700FD72B4 /* Loader.swift */; };
 		CDA45CF9273744E00025056F /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF6273744E00025056F /* OverviewView.swift */; };
 		CDA45CFA273744E00025056F /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF6273744E00025056F /* OverviewView.swift */; };
 		CDA45CFB273744E00025056F /* TabViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF7273744E00025056F /* TabViewNavigation.swift */; };
@@ -22,8 +26,6 @@
 		CDA45CFE273744E00025056F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF8273744E00025056F /* HomeView.swift */; };
 		CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
 		CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
-		7BADC1E627373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
-		7BADC1E727373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
 		E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E1F114622736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */; };
@@ -56,11 +58,12 @@
 		7BA532DC2735E64500CBE2C4 /* InsightOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsightOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA532DE2735E64500CBE2C4 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		7BA532F12736027F00CBE2C4 /* InsightOut */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightOut; path = ..; sourceTree = "<group>"; };
+		7BADC1E527373B6C0038FA31 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		7BE3F202273782F700FD72B4 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		CDA45CF6273744E00025056F /* OverviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		CDA45CF7273744E00025056F /* TabViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewNavigation.swift; sourceTree = "<group>"; };
 		CDA45CF8273744E00025056F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsOfTheDayView.swift; sourceTree = "<group>"; };
-		7BADC1E527373B6C0038FA31 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		E128FB332736113C002D02BF /* EmojiIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiIcon.swift; sourceTree = "<group>"; };
 		E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPieChartSlice.swift; sourceTree = "<group>"; };
 		E1F114642736F530007BFCEE /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				7BA532CF2735E63D00CBE2C4 /* InsightOutApp.swift */,
+				7BE3F202273782F700FD72B4 /* Loader.swift */,
 				7BA532D02735E63D00CBE2C4 /* ContentView.swift */,
 				CDA45CFF273744E70025056F /* Screens */,
 				E128FB332736113C002D02BF /* EmojiIcon.swift */,
@@ -300,16 +304,17 @@
 				CDA45CFD273744E00025056F /* HomeView.swift in Sources */,
 				E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
 				E1F114652736F530007BFCEE /* ChartData.swift in Sources */,
-				E1F1146B2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
+				E1F1146B2736F690007BFCEE /* PieChartHelper.swift in Sources */,
 				CDA45CFB273744E00025056F /* TabViewNavigation.swift in Sources */,
 				E1F1147F27373981007BFCEE /* WeekPieChart.swift in Sources */,
+				7BE3F203273782F700FD72B4 /* Loader.swift in Sources */,
 				E1F1146B2736F690007BFCEE /* PieChartHelper.swift in Sources */,
 				7BA532DF2735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
 				CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CF9273744E00025056F /* OverviewView.swift in Sources */,
-				E1F114682736F5EA007BFCEE /* PieChart.swift in Sources */,
-				E1F114622736F46F007BFCEE /* PieChartSlice.swift in Sources */,
+				E1F114682736F5EA007BFCEE /* EmojiPieChart.swift in Sources */,
+				E1F114622736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */,
 				E1F11478273737AC007BFCEE /* WeekView.swift in Sources */,
 				E1F114682736F5EA007BFCEE /* EmojiPieChart.swift in Sources */,
 				E1F114622736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */,
@@ -327,17 +332,18 @@
 				7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */,
 				CDA45CFE273744E00025056F /* HomeView.swift in Sources */,
 				E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
-				E1F1146C2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
+				E1F1146C2736F690007BFCEE /* PieChartHelper.swift in Sources */,
 				CDA45CFC273744E00025056F /* TabViewNavigation.swift in Sources */,
 				E1F1148027373981007BFCEE /* WeekPieChart.swift in Sources */,
 				E1F114662736F530007BFCEE /* ChartData.swift in Sources */,
+				7BE3F204273782F700FD72B4 /* Loader.swift in Sources */,
 				E1F1146C2736F690007BFCEE /* PieChartHelper.swift in Sources */,
 				7BA532E02735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
 				CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CFA273744E00025056F /* OverviewView.swift in Sources */,
-				E1F114692736F5EA007BFCEE /* PieChart.swift in Sources */,
-				E1F114632736F46F007BFCEE /* PieChartSlice.swift in Sources */,
+				E1F114692736F5EA007BFCEE /* EmojiPieChart.swift in Sources */,
+				E1F114632736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */,
 				E1F11479273737AC007BFCEE /* WeekView.swift in Sources */,
 				E1F114692736F5EA007BFCEE /* EmojiPieChart.swift in Sources */,
 				E1F114632736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */,

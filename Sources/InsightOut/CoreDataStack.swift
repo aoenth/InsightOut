@@ -8,10 +8,10 @@
 import CoreData
 
 @available(iOS 10, macOS 10.12, *)
-struct CoreDataStack {
-    static let shared = CoreDataStack()
+public struct CoreDataStack {
+    public static let shared = CoreDataStack()
 
-    static var preview: CoreDataStack = {
+    public static var preview: CoreDataStack = {
         let result = CoreDataStack(inMemory: true)
         let viewContext = result.container.viewContext
         do {
@@ -23,7 +23,7 @@ struct CoreDataStack {
         return result
     }()
 
-    var context: NSManagedObjectContext {
+    public var context: NSManagedObjectContext {
         container.viewContext
     }
 

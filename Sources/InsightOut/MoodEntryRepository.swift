@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
-class MoodEntryRepository: MoodEntryLoader {
+public class MoodEntryRepository: MoodEntryLoader {
     private let context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext) {
+    public init(context: NSManagedObjectContext) {
         self.context = context
     }
     
@@ -32,7 +32,7 @@ class MoodEntryRepository: MoodEntryLoader {
         return nil
     }
     
-    func moods(forDate: Date) -> [MoodEntry] {
+    public func moods(forDate: Date) -> [MoodEntry] {
         var moods = [MoodEntry]()
         
         let startDate = calendar.startOfDay(for: forDate)
@@ -53,7 +53,7 @@ class MoodEntryRepository: MoodEntryLoader {
         return moods
     }
     
-    func moods(forWeekStarting: Date) -> [Date : [MoodEntry]] {
+    public func moods(forWeekStarting: Date) -> [Date : [MoodEntry]] {
         
         let startDate = calendar.startOfDay(for: forWeekStarting)
         let endDate = calendar.date(byAdding: .day, value: 7, to: startDate)! // only 7 here since +1 will be added in moods(startDate: Date, endDate: Date)
@@ -63,7 +63,7 @@ class MoodEntryRepository: MoodEntryLoader {
         return moods
     }
 
-    func moods(startDate: Date, endDate: Date) -> [Date : [MoodEntry]] {
+    public func moods(startDate: Date, endDate: Date) -> [Date : [MoodEntry]] {
         var moods = [Date: [MoodEntry]]()
         
         let startDate = calendar.startOfDay(for: startDate)
@@ -75,12 +75,9 @@ class MoodEntryRepository: MoodEntryLoader {
             for moodMO in moodMOs {
                 if let mood = Mood(rawValue: moodMO.mood),
                    let label = Label(rawValue: moodMO.label) {
+                    let time = calendar.startOfDay(for: moodMO.time)
                     let moodEntry = MoodEntry(time: moodMO.time, mood: mood, label: label)
-                    if moods[moodMO.time] != nil {
-                        moods[moodMO.time]?.append(moodEntry)
-                    } else {
-                        moods[moodMO.time] = [moodEntry]
-                    }
+                    moods[time, default: []].append(moodEntry)
                 }
             }
         }
@@ -88,7 +85,7 @@ class MoodEntryRepository: MoodEntryLoader {
         return moods
     }
     
-    func saveMood(_ mood: Mood, date: Date, label: Label) {
+    public func saveMood(_ mood: Mood, date: Date, label: Label) {
         let newMoodEntryObject = MoodEntryObject(context: context)
         newMoodEntryObject.time = date
         newMoodEntryObject.mood = mood.rawValue

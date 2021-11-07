@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import InsightOut
 
 @main
 struct InsightOutApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()  
+            ContentView()
+                .environmentObject(Loader(context: CoreDataStack.shared.context))
         }
     }
 }

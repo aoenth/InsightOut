@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MoodEntryLoader {
+public protocol MoodEntryLoader {
     func moods(forDate: Date) -> [MoodEntry]
     func moods(forWeekStarting: Date) -> [Date: [MoodEntry]]
     func moods(startDate: Date, endDate: Date) -> [Date: [MoodEntry]]

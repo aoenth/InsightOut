@@ -59,7 +59,7 @@ struct MonthView: View {
 @available(iOS 15, *)
 struct MonthView_Previews: PreviewProvider {
     static let entries: [Date: [MoodEntry]] = {
-        (0 ..< 30).reduce(into: [Date: [MoodEntry]]()) { prev, day in
+        (0 ..< 3).reduce(into: [Date: [MoodEntry]]()) { prev, day in
             let date = Date(timeIntervalSince1970: Double(day) * 86400)
             let moods = Mood.allCases.shuffled().map { MoodEntry(time: date, mood: $0) }
             prev[date] = moods

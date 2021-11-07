@@ -9,6 +9,8 @@ import SwiftUI
 import InsightOut
 
 struct HomeView: View {
+
+    @EnvironmentObject var loader: Loader
     @State private var moodStatus = Mood.happiness
     @State private var backgroundColor = Color("happiness")
     @State private var colors = [Color]()
@@ -35,12 +37,21 @@ struct HomeView: View {
                     .frame(width: 300, height: 300)
                     .padding(.bottom, 50)
             }
-        }
+        }.onAppear(perform: load)
     }
 
-    func onTap() {
+    private func load() {
+        let moods = loader.moods(forDate: Date())
+        colors = moods
+            .map(\.mood)
+            .map(String.init(describing:))
+            .map { Color($0) }
+    }
+
+    private func onTap() {
         let colorName = String(describing: moodStatus)
         let color = Color(colorName)
+        loader.saveMood(moodStatus, date: Date(), label: .family)
         colors.append(color)
     }
 }
@@ -48,5 +59,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(MoodEntryRepository(context: CoreDataStack.preview.context))
     }
 }
