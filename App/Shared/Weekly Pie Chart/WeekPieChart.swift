@@ -13,9 +13,7 @@ struct WeekPieChart: View {
     let separatorColor = Color.white
     let accentColors = pieColors
     let data: [ChartData]
-    
-//    @State private var currentValue = ""
-//    @State private var currentLabel = ""
+
     @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
     
     var pieSlices: [PieSlice] {
@@ -42,22 +40,13 @@ struct WeekPieChart: View {
                 }
                 .gesture(DragGesture(minimumDistance: 0)
                             .onChanged { position in
-                    //let pieSize = geometry.frame(in: .local)
+                  
                     touchLocation   =   position.location
-                    //updateCurrentValue(inPie: pieSize)
                 })
             }
         }
         .aspectRatio(contentMode: .fit)
     }
-
-
-    //    func updateCurrentValue(inPie pieSize: CGRect)  {
-    //        guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return}
-    //        let currentIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) ?? -1
-    //        currentLabel = data[currentIndex].label
-    //        currentValue = "\(data[currentIndex].value)"
-    //    }
     
     func sliceIsTouched(index: Int, inPie pieSize: CGRect) -> Bool {
         guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return false }
