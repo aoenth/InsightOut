@@ -7,11 +7,13 @@
 import SwiftUI
 import InsightOut
 
+
+
 struct WeekPieChart: View {
-    let data: [ChartData]
     let separatorColor = Color.white
     let accentColors = pieColors
-
+    let data: [ChartData]
+    
 //    @State private var currentValue = ""
 //    @State private var currentLabel = ""
     @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
@@ -66,7 +68,13 @@ struct WeekPieChart: View {
 }
 
 struct WeekPieChart_Previews: PreviewProvider {
+    static let weekChartDataSet: [ChartData] = [
+        ChartData(label: "Happines", mood: Mood.happiness, value: 360/7),
+        ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7),
+        ChartData(label: "Sadness", mood: Mood.sadness, value: 360/7)
+    ]
+    
     static var previews: some View {
-        WeekPieChart(data: emojiChartDataSet)
+        WeekPieChart(data: weekChartDataSet)
     }
 }
