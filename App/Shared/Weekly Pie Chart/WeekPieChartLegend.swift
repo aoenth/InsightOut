@@ -8,23 +8,25 @@
 import SwiftUI
 import InsightOut
 struct WeekPieChartLegend: View {
+
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
             HStack {
-                ZStack {
-                    ForEach(Mood.allCases, id: \.self) { mood in
-                        Emoji(mood: mood)
-                            .foregroundColor(.clear)
-                            .frame(width: width * 0.8, height: width * 0.8)
+                
+                ForEach(Mood.allCases, id: \.self) { mood in
+                    ZStack {
                         Circle()
-                            .fill()
-                            .frame(width: width * 0.9, height: width * 0.9)
+                            .fill(Color(String(describing: mood)))
+                            .frame(width: width * 0.12, height: width * 0.12)
                         
+                        Emoji(mood: mood)
+                            .foregroundColor(Color(String(describing: mood)))
+                            .frame(width: width * 0.08, height: width * 0.08)
                     }
-                    
                 }
             }
+            .frame(width: width, height: width * 0.12)
         }
     }
 }

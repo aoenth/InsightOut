@@ -27,7 +27,6 @@ struct EmojiWheel: View {
                 ZStack {
                     Circle()
                         .fill(Color.white)
-                    
                         .frame(width: width * 0.45, height: width * 0.45)
                         .scaleEffect(isAnimated ? animationScale : 1)
                         .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/(duration: animationDuration))

@@ -32,27 +32,24 @@ struct WeekPieChart: View {
     }
     
     var body: some View {
-        ZStack {
+        VStack {
             GeometryReader { geometry in
-                ZStack  {
-                    ForEach(0..<self.data.count){ i in
-                        ZStack {
-                            WeekPieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
-                        }
-                    }
+                ForEach(0..<self.data.count) { i in
+                    
+                    WeekPieChartSlice(label: pieSlices[i].label, mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: accentColors[i], separatorColor: separatorColor, size: geometry.frame(in: .local).width)
                 }
                 .gesture(DragGesture(minimumDistance: 0)
                             .onChanged { position in
-                                //let pieSize = geometry.frame(in: .local)
-                                touchLocation   =   position.location
-                                //updateCurrentValue(inPie: pieSize)
-                    }
-                )
+                    //let pieSize = geometry.frame(in: .local)
+                    touchLocation   =   position.location
+                    //updateCurrentValue(inPie: pieSize)
+                })
             }
-            .aspectRatio(contentMode: .fit)
         }
+        .aspectRatio(contentMode: .fit)
     }
-    
+
+
     //    func updateCurrentValue(inPie pieSize: CGRect)  {
     //        guard let angle = angleAtTouchLocation(inPie: pieSize, touchLocation: touchLocation) else { return}
     //        let currentIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) ?? -1

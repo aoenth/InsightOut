@@ -14,7 +14,11 @@ struct WeekView: View {
             VStack {
                 
                 WeekPieChart(data: weekChartDataSet)
-                    .frame(width: width * 0.8, height: width * 0.8)
+                    .frame(width: width, height: width)
+                    .padding(.bottom, width * 0.1)
+                
+                WeekPieChartLegend()
+                    .frame(width: width, height: width)
                 
                 
             }
