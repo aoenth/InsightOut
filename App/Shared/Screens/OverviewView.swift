@@ -43,21 +43,9 @@ struct OverviewView: View {
             LinearGradient(gradient: Gradient(colors: [Color(emotionLookup.key(from: selectedEmotion) ?? "white"), .white]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            VStack{
-
-                if selectedEmotion == 0 {
-                    EmptyView()
-                } else {
-                    MonthView(entries: monthEntries)
-                }
-
-                Picker("Tap Me", selection: $selectedTime) {
-                    Text("Week").tag(0)
-                    Text("Month").tag(1)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-
+            VStack {
+                WeekView(entries: entries.values.flatMap { $0 })
+                MonthView(entries: monthEntries)
             }.padding()
         }.onAppear(perform: load)
     }
