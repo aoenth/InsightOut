@@ -19,7 +19,7 @@ struct WeekView: View {
                 let data = createChartData(findSavedEmojis(entries))
                 WeekPieChart(entries: data)
                     .frame(width: width, height: width)
-                    .padding(.bottom, width * 0.3)
+                    .padding(.bottom, width * 0.2)
                 WeekPieChartLegend(entries: data)
                     .frame(width: width, height: width)
                 
