@@ -22,6 +22,8 @@
 		CDA45CFE273744E00025056F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF8273744E00025056F /* HomeView.swift */; };
 		CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
 		CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
+		7BADC1E627373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
+		7BADC1E727373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
 		E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E1F114622736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */; };
@@ -58,6 +60,7 @@
 		CDA45CF7273744E00025056F /* TabViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewNavigation.swift; sourceTree = "<group>"; };
 		CDA45CF8273744E00025056F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsOfTheDayView.swift; sourceTree = "<group>"; };
+		7BADC1E527373B6C0038FA31 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		E128FB332736113C002D02BF /* EmojiIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiIcon.swift; sourceTree = "<group>"; };
 		E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPieChartSlice.swift; sourceTree = "<group>"; };
 		E1F114642736F530007BFCEE /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 				E1F1147D27373913007BFCEE /* Weekly Pie Chart */,
 				E1F11473273701DC007BFCEE /* EmojiWheel */,
 				7BA532D12735E64500CBE2C4 /* Assets.xcassets */,
+				7BADC1E527373B6C0038FA31 /* MonthView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -291,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BADC1E627373B6C0038FA31 /* MonthView.swift in Sources */,
 				7BA532E12735E64500CBE2C4 /* ContentView.swift in Sources */,
 				CDA45CFD273744E00025056F /* HomeView.swift in Sources */,
 				E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
@@ -318,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BADC1E727373B6C0038FA31 /* MonthView.swift in Sources */,
 				7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */,
 				CDA45CFE273744E00025056F /* HomeView.swift in Sources */,
 				E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
