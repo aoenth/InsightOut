@@ -23,7 +23,7 @@ struct HomeView: View {
                     .clipShape(Capsule())
                     .overlay(
                         Capsule()
-                            .stroke(lineWidth: 2)
+                            .stroke(lineWidth: 3)
                             .foregroundColor(.white)
                     )
                     .frame(minHeight: 25, maxHeight: 50)

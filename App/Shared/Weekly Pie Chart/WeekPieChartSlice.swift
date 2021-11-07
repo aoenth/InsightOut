@@ -30,7 +30,7 @@ struct WeekPieChartSlice: View {
     var body: some View {
         path
             .fill(accentColor)
-            .overlay(path.stroke(separatorColor, lineWidth: 2))
+            .overlay(path.stroke(separatorColor, lineWidth: 3))
             .scaleEffect(isTouched ? 1.1 : 1)
             .animation(Animation.spring())
     }
