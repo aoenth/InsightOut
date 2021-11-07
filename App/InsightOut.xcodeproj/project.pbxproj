@@ -22,20 +22,30 @@
 		CDA45CFE273744E00025056F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF8273744E00025056F /* HomeView.swift */; };
 		CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
 		CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
+		7BADC1E627373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
+		7BADC1E727373B6C0038FA31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BADC1E527373B6C0038FA31 /* MonthView.swift */; };
 		E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
 		E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
-		E1F114622736F46F007BFCEE /* PieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* PieChartSlice.swift */; };
-		E1F114632736F46F007BFCEE /* PieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* PieChartSlice.swift */; };
+		E1F114622736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */; };
+		E1F114632736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */; };
 		E1F114652736F530007BFCEE /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114642736F530007BFCEE /* ChartData.swift */; };
 		E1F114662736F530007BFCEE /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114642736F530007BFCEE /* ChartData.swift */; };
-		E1F114682736F5EA007BFCEE /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114672736F5EA007BFCEE /* PieChart.swift */; };
-		E1F114692736F5EA007BFCEE /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114672736F5EA007BFCEE /* PieChart.swift */; };
-		E1F1146B2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1146A2736F690007BFCEE /* EmojiWheelHelper.swift */; };
-		E1F1146C2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1146A2736F690007BFCEE /* EmojiWheelHelper.swift */; };
+		E1F114682736F5EA007BFCEE /* EmojiPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114672736F5EA007BFCEE /* EmojiPieChart.swift */; };
+		E1F114692736F5EA007BFCEE /* EmojiPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114672736F5EA007BFCEE /* EmojiPieChart.swift */; };
+		E1F1146B2736F690007BFCEE /* PieChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1146A2736F690007BFCEE /* PieChartHelper.swift */; };
+		E1F1146C2736F690007BFCEE /* PieChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1146A2736F690007BFCEE /* PieChartHelper.swift */; };
 		E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114702736FBE9007BFCEE /* EmojiWheel.swift */; };
 		E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F114702736FBE9007BFCEE /* EmojiWheel.swift */; };
 		E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F11474273729AD007BFCEE /* MoodStatusFace.swift */; };
 		E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F11474273729AD007BFCEE /* MoodStatusFace.swift */; };
+		E1F11478273737AC007BFCEE /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F11477273737AC007BFCEE /* WeekView.swift */; };
+		E1F11479273737AC007BFCEE /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F11477273737AC007BFCEE /* WeekView.swift */; };
+		E1F1147B27373893007BFCEE /* WeekPieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1147A27373893007BFCEE /* WeekPieChartSlice.swift */; };
+		E1F1147C27373893007BFCEE /* WeekPieChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1147A27373893007BFCEE /* WeekPieChartSlice.swift */; };
+		E1F1147F27373981007BFCEE /* WeekPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1147E27373981007BFCEE /* WeekPieChart.swift */; };
+		E1F1148027373981007BFCEE /* WeekPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1147E27373981007BFCEE /* WeekPieChart.swift */; };
+		E1F1148227373EDE007BFCEE /* WeekPieChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */; };
+		E1F1148327373EDE007BFCEE /* WeekPieChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,13 +60,18 @@
 		CDA45CF7273744E00025056F /* TabViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewNavigation.swift; sourceTree = "<group>"; };
 		CDA45CF8273744E00025056F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsOfTheDayView.swift; sourceTree = "<group>"; };
+		7BADC1E527373B6C0038FA31 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		E128FB332736113C002D02BF /* EmojiIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiIcon.swift; sourceTree = "<group>"; };
-		E1F114612736F46F007BFCEE /* PieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlice.swift; sourceTree = "<group>"; };
+		E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPieChartSlice.swift; sourceTree = "<group>"; };
 		E1F114642736F530007BFCEE /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
-		E1F114672736F5EA007BFCEE /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
-		E1F1146A2736F690007BFCEE /* EmojiWheelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiWheelHelper.swift; sourceTree = "<group>"; };
+		E1F114672736F5EA007BFCEE /* EmojiPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPieChart.swift; sourceTree = "<group>"; };
+		E1F1146A2736F690007BFCEE /* PieChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartHelper.swift; sourceTree = "<group>"; };
 		E1F114702736FBE9007BFCEE /* EmojiWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiWheel.swift; sourceTree = "<group>"; };
 		E1F11474273729AD007BFCEE /* MoodStatusFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStatusFace.swift; sourceTree = "<group>"; };
+		E1F11477273737AC007BFCEE /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		E1F1147A27373893007BFCEE /* WeekPieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPieChartSlice.swift; sourceTree = "<group>"; };
+		E1F1147E27373981007BFCEE /* WeekPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPieChart.swift; sourceTree = "<group>"; };
+		E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPieChartLegend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +113,10 @@
 				E128FB332736113C002D02BF /* EmojiIcon.swift */,
 				E1F11474273729AD007BFCEE /* MoodStatusFace.swift */,
 				CDF2C899273736820071571E /* EmotionsOfTheDay */,
+				E1F1147D27373913007BFCEE /* Weekly Pie Chart */,
 				E1F11473273701DC007BFCEE /* EmojiWheel */,
 				7BA532D12735E64500CBE2C4 /* Assets.xcassets */,
+				7BADC1E527373B6C0038FA31 /* MonthView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -158,12 +175,23 @@
 			isa = PBXGroup;
 			children = (
 				E1F114702736FBE9007BFCEE /* EmojiWheel.swift */,
-				E1F114672736F5EA007BFCEE /* PieChart.swift */,
-				E1F114612736F46F007BFCEE /* PieChartSlice.swift */,
-				E1F1146A2736F690007BFCEE /* EmojiWheelHelper.swift */,
+				E1F114672736F5EA007BFCEE /* EmojiPieChart.swift */,
+				E1F114612736F46F007BFCEE /* EmojiPieChartSlice.swift */,
+				E1F1146A2736F690007BFCEE /* PieChartHelper.swift */,
 				E1F114642736F530007BFCEE /* ChartData.swift */,
 			);
 			path = EmojiWheel;
+			sourceTree = "<group>";
+		};
+		E1F1147D27373913007BFCEE /* Weekly Pie Chart */ = {
+			isa = PBXGroup;
+			children = (
+				E1F11477273737AC007BFCEE /* WeekView.swift */,
+				E1F1147E27373981007BFCEE /* WeekPieChart.swift */,
+				E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */,
+				E1F1147A27373893007BFCEE /* WeekPieChartSlice.swift */,
+			);
+			path = "Weekly Pie Chart";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,19 +295,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BADC1E627373B6C0038FA31 /* MonthView.swift in Sources */,
 				7BA532E12735E64500CBE2C4 /* ContentView.swift in Sources */,
 				CDA45CFD273744E00025056F /* HomeView.swift in Sources */,
 				E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
 				E1F114652736F530007BFCEE /* ChartData.swift in Sources */,
 				E1F1146B2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
 				CDA45CFB273744E00025056F /* TabViewNavigation.swift in Sources */,
+				E1F1147F27373981007BFCEE /* WeekPieChart.swift in Sources */,
+				E1F1146B2736F690007BFCEE /* PieChartHelper.swift in Sources */,
 				7BA532DF2735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
 				CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CF9273744E00025056F /* OverviewView.swift in Sources */,
 				E1F114682736F5EA007BFCEE /* PieChart.swift in Sources */,
 				E1F114622736F46F007BFCEE /* PieChartSlice.swift in Sources */,
+				E1F11478273737AC007BFCEE /* WeekView.swift in Sources */,
+				E1F114682736F5EA007BFCEE /* EmojiPieChart.swift in Sources */,
+				E1F114622736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */,
 				E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */,
+				E1F1148227373EDE007BFCEE /* WeekPieChartLegend.swift in Sources */,
+				E1F1147B27373893007BFCEE /* WeekPieChartSlice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,19 +323,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BADC1E727373B6C0038FA31 /* MonthView.swift in Sources */,
 				7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */,
 				CDA45CFE273744E00025056F /* HomeView.swift in Sources */,
 				E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
-				E1F114662736F530007BFCEE /* ChartData.swift in Sources */,
 				E1F1146C2736F690007BFCEE /* EmojiWheelHelper.swift in Sources */,
 				CDA45CFC273744E00025056F /* TabViewNavigation.swift in Sources */,
+				E1F1148027373981007BFCEE /* WeekPieChart.swift in Sources */,
+				E1F114662736F530007BFCEE /* ChartData.swift in Sources */,
+				E1F1146C2736F690007BFCEE /* PieChartHelper.swift in Sources */,
 				7BA532E02735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
 				CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CFA273744E00025056F /* OverviewView.swift in Sources */,
 				E1F114692736F5EA007BFCEE /* PieChart.swift in Sources */,
 				E1F114632736F46F007BFCEE /* PieChartSlice.swift in Sources */,
+				E1F11479273737AC007BFCEE /* WeekView.swift in Sources */,
+				E1F114692736F5EA007BFCEE /* EmojiPieChart.swift in Sources */,
+				E1F114632736F46F007BFCEE /* EmojiPieChartSlice.swift in Sources */,
 				E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */,
+				E1F1148327373EDE007BFCEE /* WeekPieChartLegend.swift in Sources */,
+				E1F1147C27373893007BFCEE /* WeekPieChartSlice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
