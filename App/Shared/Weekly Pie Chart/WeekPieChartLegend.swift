@@ -16,20 +16,20 @@ struct WeekPieChartLegend: View {
             let width = proxy.size.width
             let total = calculateTotal(entries)
             ScrollView {
-                
-                ForEach(0..<entries.count) { index in
+
+                ForEach(entries) { entry in
                     HStack {
                         ZStack {
                             Circle()
-                                .fill(Color(String(describing: entries[index].mood)))
+                                .fill(Color(String(describing: entry.mood)))
                                 .frame(width: width * 0.12, height: width * 0.12)
                             
-                            Emoji(mood: entries[index].mood)
-                                .foregroundColor(Color(String(describing: entries[index].mood)))
+                            Emoji(mood: entry.mood)
+                                .foregroundColor(Color(String(describing: entry.mood)))
                                 .frame(width: width * 0.08, height: width * 0.08)
                             
                         }
-                        let frequency = entries[index].value
+                        let frequency = entry.value
                         
                         let percentage = frequency / total
                         Text(" \(String(format: "%.0f", round(percentage * 100)))%")
@@ -47,6 +47,12 @@ struct WeekPieChartLegend: View {
             total += entry.value
         }
         return total
+    }
+}
+
+extension ChartData: Identifiable {
+    var id: String {
+        "\(mood.rawValue) + \(value)"
     }
 }
 

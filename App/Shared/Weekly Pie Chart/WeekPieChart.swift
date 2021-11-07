@@ -32,7 +32,7 @@ struct WeekPieChart: View {
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                ForEach(0..<self.entries.count) { i in
+                ForEach(0 ..< pieSlices.count) { i in
                     WeekPieChartSlice(
                         mood: pieSlices[i].mood,
                         center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY),

@@ -13,17 +13,11 @@ struct WeekView: View {
     let entries: [MoodEntry]
     
     var body: some View {
-        GeometryReader { proxy in
-            let width = proxy.size.width
-            VStack {
-                let data = createChartData(findSavedEmojis(entries))
-                WeekPieChart(entries: data)
-                    .frame(width: width, height: width)
-                    .padding(.bottom, width * 0.2)
-                WeekPieChartLegend(entries: data)
-                    .frame(width: width, height: width)
-                
-            }
+        VStack {
+            let data = createChartData(findSavedEmojis(entries))
+            WeekPieChart(entries: data)
+                .padding(.bottom)
+            WeekPieChartLegend(entries: data)
         }
     }
     
@@ -57,21 +51,21 @@ struct WeekView: View {
 }
 
 struct WeekView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         let entries: [MoodEntry] = {
             var entries = [MoodEntry]()
             let dates = (-30 ..< 30).map { day in
                 Calendar.current.date(byAdding: .day, value: day, to: Date())!
             }
-            
+
             for date in dates {
                 let mood = Mood.allCases.randomElement()!
                 entries.append(MoodEntry(time: date, mood: mood))
             }
             return entries
         }()
-        
+
         WeekView(entries: entries)
     }
 }
