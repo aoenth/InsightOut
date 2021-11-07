@@ -48,6 +48,8 @@
 		E1F1148027373981007BFCEE /* WeekPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1147E27373981007BFCEE /* WeekPieChart.swift */; };
 		E1F1148227373EDE007BFCEE /* WeekPieChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */; };
 		E1F1148327373EDE007BFCEE /* WeekPieChartLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */; };
+		E1F6FCC227386B4B006BD6B3 /* WeekTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6FCC127386B4B006BD6B3 /* WeekTab.swift */; };
+		E1F6FCC327386B4B006BD6B3 /* WeekTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6FCC127386B4B006BD6B3 /* WeekTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,7 @@
 		E1F1147A27373893007BFCEE /* WeekPieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPieChartSlice.swift; sourceTree = "<group>"; };
 		E1F1147E27373981007BFCEE /* WeekPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPieChart.swift; sourceTree = "<group>"; };
 		E1F1148127373EDE007BFCEE /* WeekPieChartLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPieChartLegend.swift; sourceTree = "<group>"; };
+		E1F6FCC127386B4B006BD6B3 /* WeekTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 				CDA45CF8273744E00025056F /* HomeView.swift */,
 				CDA45CF6273744E00025056F /* OverviewView.swift */,
 				CDA45CF7273744E00025056F /* TabViewNavigation.swift */,
+				E1F6FCC127386B4B006BD6B3 /* WeekTab.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -304,12 +308,13 @@
 				CDA45CFD273744E00025056F /* HomeView.swift in Sources */,
 				E1F11475273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
 				E1F114652736F530007BFCEE /* ChartData.swift in Sources */,
-				E1F1146B2736F690007BFCEE /* PieChartHelper.swift in Sources */,
+				E1F1146B2736F690007BFCEE /* EmojiPieChartHelper.swift in Sources */,
 				CDA45CFB273744E00025056F /* TabViewNavigation.swift in Sources */,
 				E1F1147F27373981007BFCEE /* WeekPieChart.swift in Sources */,
 				7BE3F203273782F700FD72B4 /* Loader.swift in Sources */,
-				E1F1146B2736F690007BFCEE /* PieChartHelper.swift in Sources */,
+				E1F1146B2736F690007BFCEE /* EmojiPieChartHelper.swift in Sources */,
 				7BA532DF2735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
+				E1F6FCC227386B4B006BD6B3 /* WeekTab.swift in Sources */,
 				CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CF9273744E00025056F /* OverviewView.swift in Sources */,
@@ -332,13 +337,14 @@
 				7BA532E22735E64500CBE2C4 /* ContentView.swift in Sources */,
 				CDA45CFE273744E00025056F /* HomeView.swift in Sources */,
 				E1F11476273729AE007BFCEE /* MoodStatusFace.swift in Sources */,
-				E1F1146C2736F690007BFCEE /* PieChartHelper.swift in Sources */,
+				E1F1146C2736F690007BFCEE /* EmojiPieChartHelper.swift in Sources */,
 				CDA45CFC273744E00025056F /* TabViewNavigation.swift in Sources */,
 				E1F1148027373981007BFCEE /* WeekPieChart.swift in Sources */,
 				E1F114662736F530007BFCEE /* ChartData.swift in Sources */,
 				7BE3F204273782F700FD72B4 /* Loader.swift in Sources */,
-				E1F1146C2736F690007BFCEE /* PieChartHelper.swift in Sources */,
+				E1F1146C2736F690007BFCEE /* EmojiPieChartHelper.swift in Sources */,
 				7BA532E02735E64500CBE2C4 /* InsightOutApp.swift in Sources */,
+				E1F6FCC327386B4B006BD6B3 /* WeekTab.swift in Sources */,
 				CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */,
 				E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CFA273744E00025056F /* OverviewView.swift in Sources */,

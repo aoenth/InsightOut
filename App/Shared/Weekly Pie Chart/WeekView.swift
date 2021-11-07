@@ -59,16 +59,19 @@ struct WeekView: View {
 struct WeekView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let entries = [
-            MoodEntry(time: Date(), mood: Mood.sadness),
-            MoodEntry(time: Date(), mood: Mood.happiness),
-            MoodEntry(time: Date(), mood: Mood.love),
-            MoodEntry(time: Date(), mood: Mood.love),
-            MoodEntry(time: Date(), mood: Mood.love),
-            MoodEntry(time: Date(), mood: Mood.anger),
-            MoodEntry(time: Date(), mood: Mood.fear)
+        let entries: [MoodEntry] = {
+            var entries = [MoodEntry]()
+            let dates = (-30 ..< 30).map { day in
+                Calendar.current.date(byAdding: .day, value: day, to: Date())!
+            }
             
-        ]
+            for date in dates {
+                let mood = Mood.allCases.randomElement()!
+                entries.append(MoodEntry(time: date, mood: mood))
+            }
+            return entries
+        }()
+        
         WeekView(entries: entries)
     }
 }
