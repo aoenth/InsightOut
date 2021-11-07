@@ -23,6 +23,7 @@ struct OverviewView: View {
     @State private var selectedEmotion = 7
 
     @State private var entries = [Date: [MoodEntry]]()
+    @State private var monthEntries = [Date: [MoodEntry]]()
 
     let emotionLookup = [
         "happiness":0,
@@ -42,17 +43,9 @@ struct OverviewView: View {
             LinearGradient(gradient: Gradient(colors: [Color(emotionLookup.key(from: selectedEmotion) ?? "white"), .white]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            VStack{
-
+            VStack {
                 WeekView(entries: entries.values.flatMap { $0 })
-                
-                Picker("Tap Me", selection: $selectedTime) {
-                    Text("Week").tag(0)
-                    Text("Month").tag(1)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-
+                MonthView(entries: monthEntries)
             }.padding()
         }.onAppear(perform: load)
     }
@@ -60,6 +53,10 @@ struct OverviewView: View {
     func load() {
         let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
         entries = loader.moods(forWeekStarting: startDate)
+
+
+        let startDateForMonth = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        monthEntries = loader.moods(forWeekStarting: startDateForMonth)
     }
 }
 
