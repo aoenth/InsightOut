@@ -23,6 +23,7 @@ struct OverviewView: View {
     @State private var selectedEmotion = 7
 
     @State private var entries = [Date: [MoodEntry]]()
+    @State private var monthEntries = [Date: [MoodEntry]]()
 
     let emotionLookup = [
         "happiness":0,
@@ -44,8 +45,12 @@ struct OverviewView: View {
             
             VStack{
 
-                WeekView(entries: entries.values.flatMap { $0 })
-                
+                if selectedEmotion == 0 {
+                    EmptyView()
+                } else {
+                    MonthView(entries: monthEntries)
+                }
+
                 Picker("Tap Me", selection: $selectedTime) {
                     Text("Week").tag(0)
                     Text("Month").tag(1)
@@ -60,6 +65,10 @@ struct OverviewView: View {
     func load() {
         let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
         entries = loader.moods(forWeekStarting: startDate)
+
+
+        let startDateForMonth = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        monthEntries = loader.moods(forWeekStarting: startDateForMonth)
     }
 }
 
