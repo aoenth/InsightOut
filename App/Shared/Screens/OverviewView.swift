@@ -53,13 +53,9 @@ struct OverviewView: View {
                         ForEach(Mood.allCases, id: \.self) { mood in
                             
                             Button{
-                                //print(String(describing: mood))
                                 
                                 selectedEmotion = emotionLookup[String(describing: mood)]!
                                 
-                                print(selectedEmotion)
-
-
                             } label:{
                                 ZStack {
                                     Circle()
@@ -84,16 +80,11 @@ struct OverviewView: View {
                                 Text("All")
                                     .foregroundColor(.black)
                             }
-                            
                         }
                     }
                     .frame(width: width, height: width * 0.12)
-                    
                 }
-                
             }.padding()
-            
-            
         }
     }
 }
