@@ -10,8 +10,6 @@ import InsightOut
 
 struct WeekView: View {
     
-    // MARK: I'm not sure what type of entry i should use
-    // let entries: [Date: [MoodEntry]]
     let entries: [MoodEntry]
     
     var body: some View {
