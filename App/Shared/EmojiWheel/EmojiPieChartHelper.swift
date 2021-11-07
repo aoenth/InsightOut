@@ -33,8 +33,6 @@ func normalizedValue(index: Int, data: [ChartData]) -> Double {
     return data[index].value/total
 }
 
-
-
 func angleAtTouchLocation(inPie pieSize: CGRect, touchLocation: CGPoint) ->  Double?  {
     let dx = touchLocation.x - pieSize.midX
     let dy = touchLocation.y - pieSize.midY
@@ -49,5 +47,5 @@ func angleAtTouchLocation(inPie pieSize: CGRect, touchLocation: CGPoint) ->  Dou
         return (180 + angleAtTouchLocation) + 180
     } else {
         return angleAtTouchLocation
-     }
- }
+    }
+}

@@ -33,7 +33,6 @@ struct EmojiWheel: View {
             let width = proxy.size.width
             ZStack {
                 EmojiPieChart(data: emojiChartDataSet, moodStatus: $moodStatus, backgroundColor: $backgroundColor)
-                
                 ZStack {
                     Circle()
                         .fill(Color.white)
@@ -49,7 +48,6 @@ struct EmojiWheel: View {
                 }
                 .onTapGesture {
                     onTap()
-                    print("hi")
                     isAnimated = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
                         isAnimated = false

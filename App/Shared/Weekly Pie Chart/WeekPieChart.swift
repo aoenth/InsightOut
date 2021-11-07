@@ -35,8 +35,7 @@ struct WeekPieChart: View {
                 ForEach(0..<self.entries.count) { i in
                     WeekPieChartSlice(mood: pieSlices[i].mood, center: CGPoint(x: geometry.frame(in: .local).midX, y: geometry.frame(in:  .local).midY), radius: geometry.frame(in: .local).width/2, startDegree: pieSlices[i].startDegree, endDegree: pieSlices[i].endDegree, isTouched: sliceIsTouched(index: i, inPie: geometry.frame(in:  .local)), accentColor: Color(String(describing: pieSlices[i].mood)), separatorColor: separatorColor, size: geometry.frame(in: .local).width)
                 }
-                .gesture(DragGesture(minimumDistance: 0)
-                            .onChanged { position in
+                .gesture(DragGesture(minimumDistance: 0).onChanged { position in
                     touchLocation = position.location
                 })
             }

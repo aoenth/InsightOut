@@ -4,6 +4,7 @@
 //
 //  Created by Vincent Nguyen on 11/6/21
 // WITH GREAT HELP FROM : https://github.com/BLCKBIRDS/Pie-Chart-in-SwiftUI
+
 import SwiftUI
 import InsightOut
 
@@ -13,8 +14,6 @@ struct EmojiPieChart: View {
     let accentColors = pieColors
 
     @State private var touchLocation: CGPoint = .init(x: -1, y: -1)
-    
-
     @Binding var moodStatus: Mood
     @Binding var backgroundColor: Color
     
@@ -42,11 +41,9 @@ struct EmojiPieChart: View {
                         }
                     }
                 }
-                .gesture(DragGesture(minimumDistance: 0)
-                            .onChanged { position in
-                                touchLocation   =   position.location
-                    }
-                )
+                .gesture(DragGesture(minimumDistance: 0).onChanged { position in
+                    touchLocation = position.location
+                })
             }
             .aspectRatio(contentMode: .fit)
         }
@@ -58,13 +55,11 @@ struct EmojiPieChart: View {
         guard let selectedSliceIndex = pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) else { return false }
         DispatchQueue.main.async {
             moodStatus = pieSlices[selectedSliceIndex].mood
-            
             backgroundColor = accentColors[selectedSliceIndex]
             
         }
         return pieSlices.firstIndex(where: { $0.startDegree < angle && $0.endDegree > angle }) == index
     }
-    
 }
 
 struct EmojiPieChart_Previews: PreviewProvider {

@@ -35,7 +35,6 @@ struct EmojiPieChartSlice: View {
         return path
     }
     
-    
     var body: some View {
         ZStack {
             path
