@@ -9,6 +9,8 @@ import SwiftUI
 import InsightOut
 
 struct HomeView: View {
+
+    @EnvironmentObject var loader: Loader
     @State private var moodStatus = Mood.happiness
     @State private var backgroundColor = Color("happiness")
     @State private var colors = [Color]()
