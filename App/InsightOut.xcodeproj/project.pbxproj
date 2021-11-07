@@ -20,8 +20,6 @@
 		CDA45CFC273744E00025056F /* TabViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF7273744E00025056F /* TabViewNavigation.swift */; };
 		CDA45CFD273744E00025056F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF8273744E00025056F /* HomeView.swift */; };
 		CDA45CFE273744E00025056F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA45CF8273744E00025056F /* HomeView.swift */; };
-		CDF2C89C273736820071571E /* EmotionColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89A273736820071571E /* EmotionColorSquareView.swift */; };
-		CDF2C89D273736820071571E /* EmotionColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89A273736820071571E /* EmotionColorSquareView.swift */; };
 		CDF2C89E273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
 		CDF2C89F273736820071571E /* EmotionsOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */; };
 		E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128FB332736113C002D02BF /* EmojiIcon.swift */; };
@@ -51,7 +49,6 @@
 		CDA45CF6273744E00025056F /* OverviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		CDA45CF7273744E00025056F /* TabViewNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewNavigation.swift; sourceTree = "<group>"; };
 		CDA45CF8273744E00025056F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		CDF2C89A273736820071571E /* EmotionColorSquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionColorSquareView.swift; sourceTree = "<group>"; };
 		CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsOfTheDayView.swift; sourceTree = "<group>"; };
 		E128FB332736113C002D02BF /* EmojiIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiIcon.swift; sourceTree = "<group>"; };
 		E1F114612736F46F007BFCEE /* PieChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlice.swift; sourceTree = "<group>"; };
@@ -152,7 +149,6 @@
 		CDF2C899273736820071571E /* EmotionsOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
-				CDF2C89A273736820071571E /* EmotionColorSquareView.swift */,
 				CDF2C89B273736820071571E /* EmotionsOfTheDayView.swift */,
 			);
 			path = EmotionsOfTheDay;
@@ -282,7 +278,6 @@
 				E1F114712736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CF9273744E00025056F /* OverviewView.swift in Sources */,
 				E1F114682736F5EA007BFCEE /* PieChart.swift in Sources */,
-				CDF2C89C273736820071571E /* EmotionColorSquareView.swift in Sources */,
 				E1F114622736F46F007BFCEE /* PieChartSlice.swift in Sources */,
 				E128FB342736113C002D02BF /* EmojiIcon.swift in Sources */,
 			);
@@ -303,7 +298,6 @@
 				E1F114722736FBE9007BFCEE /* EmojiWheel.swift in Sources */,
 				CDA45CFA273744E00025056F /* OverviewView.swift in Sources */,
 				E1F114692736F5EA007BFCEE /* PieChart.swift in Sources */,
-				CDF2C89D273736820071571E /* EmotionColorSquareView.swift in Sources */,
 				E1F114632736F46F007BFCEE /* PieChartSlice.swift in Sources */,
 				E128FB352736113C002D02BF /* EmojiIcon.swift in Sources */,
 			);

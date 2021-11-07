@@ -9,12 +9,12 @@ import SwiftUI
 import InsightOut
 
 struct EmotionsOfTheDayView: View {
-    @Binding var colors: [Color]
+    let colors: [Color]
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             ForEach(0 ..< colors.count, id: \.self) { index in
-                EmotionColorSquareView(color: colors[index])
+                colors[index]
             }
         }
     }
@@ -22,7 +22,7 @@ struct EmotionsOfTheDayView: View {
 
 struct EmotionsOfTheDayView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionsOfTheDayView(colors: .constant([Color.blue, Color.red]))
+        EmotionsOfTheDayView(colors: [Color.blue, Color.red])
             .previewLayout(.sizeThatFits)
     }
 }
