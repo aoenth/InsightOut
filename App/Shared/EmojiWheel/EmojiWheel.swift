@@ -13,9 +13,11 @@ struct EmojiWheel: View {
     let animationScale = 1.1
     let animationDuration = 0.2
 
-    @State var isAnimated = false
+    @State private var isAnimated = false
     @Binding var moodStatus: Mood
     @Binding var backgroundColor: Color
+    let onTap: () -> Void
+
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
@@ -38,6 +40,7 @@ struct EmojiWheel: View {
                     
                 }
                 .onTapGesture {
+                    onTap()
                     print("hi")
                     isAnimated = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
@@ -53,6 +56,6 @@ struct EmojiWheel_Previews: PreviewProvider {
     @State static var moodStatus = Mood.happiness
     @State static var backgroundColor = Color("happiness")
     static var previews: some View {
-        EmojiWheel(moodStatus: $moodStatus, backgroundColor: $backgroundColor)
+        EmojiWheel(moodStatus: $moodStatus, backgroundColor: $backgroundColor) { }
     }
 }
