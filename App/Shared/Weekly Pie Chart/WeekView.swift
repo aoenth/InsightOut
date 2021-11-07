@@ -20,8 +20,6 @@ struct WeekView: View {
                 WeekPieChart(entries: data)
                     .frame(width: width, height: width)
                     .padding(.bottom, width * 0.3)
-                
-                
                 WeekPieChartLegend(entries: data)
                     .frame(width: width, height: width)
                 
@@ -66,7 +64,10 @@ struct WeekView_Previews: PreviewProvider {
             MoodEntry(time: Date(), mood: Mood.happiness),
             MoodEntry(time: Date(), mood: Mood.love),
             MoodEntry(time: Date(), mood: Mood.love),
-            MoodEntry(time: Date(), mood: Mood.love)
+            MoodEntry(time: Date(), mood: Mood.love),
+            MoodEntry(time: Date(), mood: Mood.anger),
+            MoodEntry(time: Date(), mood: Mood.fear)
+            
         ]
         WeekView(entries: entries)
     }

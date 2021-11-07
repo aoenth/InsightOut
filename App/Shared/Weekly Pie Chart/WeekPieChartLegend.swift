@@ -15,7 +15,7 @@ struct WeekPieChartLegend: View {
         GeometryReader { proxy in
             let width = proxy.size.width
             let total = calculateTotal(entries)
-            VStack {
+            ScrollView {
                 
                 ForEach(0..<entries.count) { index in
                     HStack {
@@ -35,9 +35,10 @@ struct WeekPieChartLegend: View {
                         Text(" \(String(format: "%.0f", round(percentage * 100)))%")
                             .font(Font.system(size: width * 0.1, weight: .bold))
                     }
+                    
                 }
             }
-            .frame(width: width, height: width * 0.12)
+            .frame(width: width, height: width * 0.5)
         }
     }
     func calculateTotal(_ entries: [ChartData]) -> CGFloat {
