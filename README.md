@@ -1,6 +1,6 @@
 # InsightOut
 
-InsightOut is an iOS app created by GitHub@aoenth, @vincentbanguyen, @trackjoy, @HaotianHuang and @UMPUSTEN as part of the SwiftUIJam hackathon. The app allows users to input their mood throughout the day using a wheel-like interface. Over time, users can see their mood for the past months in a beautiful, natively rendered graph.
+InsightOut is an iOS app created by GitHub users @aoenth, @vincentbanguyen, @trackjoy, @HaotianHuang and @UMPUSTEN as part of the SwiftUIJam hackathon in 2021. The app allows users to input their mood throughout the day using a wheel-like interface. Over time, users can see their mood for the past months in a beautiful, natively rendered graph.
 
 ## Installation
 
